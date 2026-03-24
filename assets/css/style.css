@@ -1,0 +1,1282 @@
+/* =============================================================
+   ALESSANDRO PANAIA — Project Manager Edilizia Privata
+   style.css — Main stylesheet (Tokyo-faithful monochromatic)
+   ============================================================= */
+
+/* ─────────────────────────────────────────
+   1. CSS CUSTOM PROPERTIES (Design Tokens)
+───────────────────────────────────────── */
+:root {
+  /* Palette — strictly monochromatic */
+  --color-bg:        #f5f5f5;   /* overall page background */
+  --color-sidebar:   #ffffff;   /* sidebar background */
+  --color-surface:   #ffffff;   /* cards and content blocks */
+  --color-black:     #111111;   /* primary text / headings */
+  --color-dark:      #333333;   /* body text */
+  --color-mid:       #666666;   /* secondary text */
+  --color-muted:     #999999;   /* labels, captions */
+  --color-border:    #e5e5e5;   /* dividers */
+  --color-accent-bg: #f0f0f0;   /* subtle alternate section bg */
+
+  /* Typography */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body:    'Muli', sans-serif;
+  --font-serif:   'Lora', serif;
+
+  /* Layout */
+  --sidebar-width:    280px;
+  --content-padding:  60px;
+  --section-padding:  90px var(--content-padding);
+
+  /* Transitions */
+  --transition-fast:  0.2s ease;
+  --transition-base:  0.35s ease;
+}
+
+/* ─────────────────────────────────────────
+   2. RESET & BASE
+───────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--color-dark);
+  background-color: var(--color-bg);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+em {
+  font-style: italic;
+}
+
+/* ─────────────────────────────────────────
+   3. SIDEBAR
+───────────────────────────────────────── */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background-color: var(--color-sidebar);
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  overflow-y: auto;
+  /* smooth scrollbar hiding */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+}
+
+/* Logo / Name */
+.sidebar-logo {
+  padding: 44px 36px 36px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.logo-link {
+  display: block;
+}
+
+.logo-text {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  line-height: 1.35;
+  color: var(--color-black);
+  text-transform: uppercase;
+  transition: opacity var(--transition-fast);
+}
+
+.logo-link:hover .logo-text {
+  opacity: 0.65;
+}
+
+/* Navigation */
+.sidebar-nav {
+  flex: 1;
+  padding: 36px 36px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav-link {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+  padding: 7px 0;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-black);
+  transition: width var(--transition-base);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-black);
+  font-weight: 700;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 20px;
+}
+
+/* Sidebar footer */
+.sidebar-footer {
+  padding: 24px 36px 36px;
+  border-top: 1px solid var(--color-border);
+}
+
+.sidebar-footer p {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--color-muted);
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+
+/* Hamburger button (hidden on desktop) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 16px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 110;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--color-black);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+/* Mobile overlay backdrop */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 90;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+}
+
+/* ─────────────────────────────────────────
+   4. MAIN CONTENT
+───────────────────────────────────────── */
+.main-content {
+  margin-left: var(--sidebar-width);
+  flex: 1;
+  min-width: 0;
+}
+
+/* ─────────────────────────────────────────
+   5. SECTION BASE STYLES
+───────────────────────────────────────── */
+.section {
+  position: relative;
+}
+
+.section--white {
+  background-color: var(--color-surface);
+}
+
+.section--light {
+  background-color: var(--color-bg);
+}
+
+.section-inner {
+  padding: var(--section-padding);
+  max-width: 1100px;
+}
+
+/* Section header block */
+.section-header {
+  position: relative;
+  margin-bottom: 52px;
+}
+
+/* Section label pill */
+.section-label {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-black);
+  border: 1px solid var(--color-black);
+  padding: 5px 14px;
+  margin-bottom: 22px;
+}
+
+/* Section H2 */
+.section-title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.08;
+  color: var(--color-black);
+  letter-spacing: -0.02em;
+}
+
+/* Section subtitle (muted text after heading) */
+.section-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  letter-spacing: 0.03em;
+  margin-bottom: 52px;
+  margin-top: -20px;
+}
+
+/* Section intro paragraph (committenza) */
+.section-intro {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-mid);
+  max-width: 560px;
+  line-height: 1.75;
+  margin-bottom: 52px;
+  margin-top: -20px;
+}
+
+/* Decorative circle ⊕ — top-right of section header */
+.deco-circle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid var(--color-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.deco-dot {
+  display: block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid var(--color-muted);
+}
+
+/* ─────────────────────────────────────────
+   6. HERO SECTION
+───────────────────────────────────────── */
+.section--hero {
+  background-color: var(--color-surface);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.section-inner--hero {
+  padding: 100px var(--content-padding);
+  display: flex;
+  align-items: center;
+  gap: 72px;
+  width: 100%;
+  max-width: none;
+}
+
+/* Profile image */
+.hero-image {
+  flex: 0 0 auto;
+}
+
+.hero-image-frame {
+  width: 320px;
+  height: 320px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  filter: grayscale(100%);
+  transition: filter var(--transition-base);
+}
+
+.hero-image-frame:hover {
+  filter: grayscale(60%);
+}
+
+.hero-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hero text */
+.hero-content {
+  flex: 1;
+  position: relative;
+  min-width: 0;
+}
+
+.hero-name {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  line-height: 1.0;
+  color: var(--color-black);
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+  margin-top: 8px;
+}
+
+.hero-tagline {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  color: var(--color-dark);
+  line-height: 1.4;
+  margin-bottom: 22px;
+  letter-spacing: 0.01em;
+}
+
+.hero-body {
+  font-family: var(--font-body);
+  font-size: 0.97rem;
+  color: var(--color-mid);
+  line-height: 1.8;
+  max-width: 500px;
+  margin-bottom: 12px;
+}
+
+.hero-meta {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 36px;
+}
+
+/* CTA Buttons */
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  transition: background-color var(--transition-fast),
+              color var(--transition-fast),
+              border-color var(--transition-fast);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background-color: var(--color-black);
+  color: var(--color-sidebar);
+  border: 1px solid var(--color-black);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-dark);
+  border-color: var(--color-dark);
+}
+
+.btn--outline {
+  background-color: transparent;
+  color: var(--color-black);
+  border: 1px solid var(--color-black);
+}
+
+.btn--outline:hover {
+  background-color: var(--color-black);
+  color: var(--color-sidebar);
+}
+
+/* ─────────────────────────────────────────
+   7. PROFILO SECTION
+───────────────────────────────────────── */
+.profilo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* Bio paragraphs */
+.profilo-bio p {
+  font-family: var(--font-body);
+  font-size: 0.97rem;
+  color: var(--color-dark);
+  line-height: 1.85;
+  margin-bottom: 22px;
+}
+
+.profilo-bio p:last-child {
+  margin-bottom: 0;
+}
+
+/* Info grid (label/value rows) */
+.info-grid {
+  border-top: 1px solid var(--color-border);
+  margin-bottom: 40px;
+}
+
+.info-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.info-label {
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.info-value {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-dark);
+  font-weight: 400;
+}
+
+/* Skill bars */
+.skills-section {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.skill-name {
+  font-family: var(--font-heading);
+  font-size: 0.73rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-dark);
+}
+
+.skill-pct {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+.skill-bar {
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;              /* animated via JS */
+  background-color: var(--color-black);
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─────────────────────────────────────────
+   8. SERVICE CARDS (Metodo G.C.C.P.)
+───────────────────────────────────────── */
+.metodo-intro {
+  max-width: 680px;
+  margin-bottom: 60px;
+}
+
+.metodo-intro p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-mid);
+  line-height: 1.85;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background-color: var(--color-border);
+}
+
+.service-card {
+  background-color: var(--color-surface);
+  padding: 40px 36px 36px;
+  position: relative;
+  transition: background-color var(--transition-fast);
+}
+
+.service-card:hover {
+  background-color: var(--color-accent-bg);
+}
+
+.card-number {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--color-muted);
+  margin-bottom: 18px;
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: var(--color-black);
+  line-height: 1.35;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+
+.card-body {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-mid);
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+
+/* Thin accent line at bottom of card */
+.card-line {
+  width: 30px;
+  height: 1px;
+  background-color: var(--color-black);
+}
+
+/* ─────────────────────────────────────────
+   9. AMBITI SECTION
+───────────────────────────────────────── */
+.ambiti-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.ambito-item {
+  padding-top: 28px;
+  border-top: 1px solid var(--color-border);
+}
+
+.ambito-number {
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--color-accent-bg);
+  line-height: 1;
+  margin-bottom: 16px;
+  letter-spacing: -0.04em;
+  /* large muted number */
+  -webkit-text-stroke: 1px var(--color-border);
+  color: transparent;
+}
+
+.ambito-title {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-black);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.ambito-body {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-mid);
+  line-height: 1.75;
+}
+
+/* ─────────────────────────────────────────
+   10. COMMITTENZA SECTION
+───────────────────────────────────────── */
+.committenza-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background-color: var(--color-border);
+}
+
+.committenza-card {
+  background-color: var(--color-surface);
+  padding: 40px 36px;
+  transition: background-color var(--transition-fast);
+}
+
+.committenza-card:hover {
+  background-color: var(--color-accent-bg);
+}
+
+.committenza-card-header {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.committenza-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-black);
+  margin-bottom: 6px;
+}
+
+.committenza-subtitle {
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.committenza-body {
+  font-family: var(--font-body);
+  font-size: 0.87rem;
+  color: var(--color-mid);
+  line-height: 1.75;
+  margin-bottom: 22px;
+}
+
+.committenza-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.committenza-list li {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--color-dark);
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.committenza-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--color-muted);
+  font-size: 0.75rem;
+}
+
+/* ─────────────────────────────────────────
+   11. CONTATTI SECTION
+───────────────────────────────────────── */
+.contatti-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.contact-link {
+  color: var(--color-dark);
+  border-bottom: 1px solid var(--color-border);
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.contact-link:hover {
+  color: var(--color-black);
+  border-color: var(--color-black);
+}
+
+/* Quote block */
+.contact-quote {
+  border-left: 3px solid var(--color-black);
+  padding-left: 24px;
+  margin-bottom: 32px;
+}
+
+.contact-quote p {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--color-dark);
+  line-height: 1.85;
+  font-style: italic;
+}
+
+/* Signature */
+.contact-signature {
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+}
+
+.sig-name {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-black);
+  letter-spacing: 0.03em;
+  margin-bottom: 4px;
+}
+
+.sig-role {
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* ─────────────────────────────────────────
+   12. SITE FOOTER
+───────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  margin-top: 64px;
+  padding: 28px var(--content-padding);
+  background-color: var(--color-bg);
+}
+
+.footer-inner p {
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* ─────────────────────────────────────────
+   13. AOS OVERRIDE — ensure visibility on
+       reduced-motion preference
+───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* =============================================================
+   ADDITIONS — Enhancements, fixes & new sections
+   ============================================================= */
+
+/* ─────────────────────────────────────────
+   FIX 1 — Skill bars: always start at 0
+   JS sets the final width via IntersectionObserver
+───────────────────────────────────────── */
+.skill-fill {
+  width: 0 !important;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─────────────────────────────────────────
+   ENHANCEMENT 1 — Metodo cards: hover lift
+   + number badge flip + bottom-line draw-in
+───────────────────────────────────────── */
+.service-card {
+  /* override: add transform & shadow to existing transition */
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease,
+              background-color var(--transition-fast);
+  overflow: hidden; /* clip ::after bottom line */
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  background-color: var(--color-accent-bg);
+}
+
+/* Card number: add inline-block so background can fill */
+.card-number {
+  display: inline-block;
+  padding: 3px 7px 3px 0;
+  transition: background-color 0.25s ease, color 0.25s ease, padding 0.25s ease;
+}
+
+.service-card:hover .card-number {
+  background-color: var(--color-black);
+  color: var(--color-sidebar);
+  padding: 3px 7px;
+}
+
+/* Bottom accent line: draw in via ::after */
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 36px;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-black);
+  transition: width 0.4s ease;
+}
+
+.service-card:hover::after {
+  width: 30px;
+}
+
+/* card-header: contains title + toggle button */
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.card-header .card-title {
+  flex: 1;
+  margin-bottom: 0; /* spacing handled by card-collapsible */
+}
+
+/* Toggle button: hidden on desktop, shown on mobile */
+.card-toggle-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 0 0 8px;
+  flex-shrink: 0;
+  align-self: center;
+  line-height: 1;
+}
+
+.card-toggle-icon {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--color-muted);
+  display: block;
+  transition: transform 0.3s ease, color 0.2s ease;
+  font-style: normal;
+}
+
+.service-card.is-open .card-toggle-icon {
+  transform: rotate(45deg); /* + → × */
+  color: var(--color-black);
+}
+
+/* Collapsible body — always open on desktop */
+.card-collapsible {
+  margin-top: 14px;
+}
+
+/* ─────────────────────────────────────────
+   ENHANCEMENT 2 — Profilo stats row
+───────────────────────────────────────── */
+.stats-row {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  margin: 0 0 52px;
+  padding: 30px 0;
+}
+
+.stat-item {
+  flex: 1;
+  text-align: center;
+  border-right: 1px solid var(--color-border);
+  padding: 0 16px;
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-number-wrap {
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-number {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--color-black);
+  line-height: 1;
+}
+
+.stat-suffix {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-black);
+  vertical-align: super;
+  line-height: 1;
+}
+
+.stat-label {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-top: 8px;
+}
+
+/* ─────────────────────────────────────────
+   ENHANCEMENT 3 — Committenza: border-left
+   hover + reveal CTA link
+───────────────────────────────────────── */
+.committenza-card {
+  border-left: 3px solid transparent;
+  /* override to add border-left-color to transition */
+  transition: background-color var(--transition-fast),
+              border-left-color 0.3s ease;
+}
+
+.committenza-card:hover {
+  border-left-color: var(--color-black);
+  background-color: var(--color-accent-bg);
+}
+
+.card-cta {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.committenza-card:hover .card-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-link {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-black);
+  display: inline-block;
+  transition: letter-spacing 0.25s ease;
+}
+
+.card-link:hover {
+  letter-spacing: 0.16em;
+}
+
+/* ─────────────────────────────────────────
+   ENHANCEMENT 4 — Hero: animated bg SVG
+───────────────────────────────────────── */
+.hero-bg-lines {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 55%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-bg-lines svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Lines draw in from dashoffset on load */
+.hero-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLine 1.8s ease forwards;
+}
+
+.hero-line--1 { animation-delay: 0.2s; }
+.hero-line--2 { animation-delay: 0.4s; }
+.hero-line--3 { animation-delay: 0.6s; }
+
+@keyframes drawLine {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Ensure hero content floats above the bg SVG */
+.section-inner--hero {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─────────────────────────────────────────
+   ENHANCEMENT 5 — Ambiti: hover zoom number
+   + underline slide-in
+───────────────────────────────────────── */
+.ambito-item {
+  cursor: default;
+  transition: transform 0.2s ease;
+}
+
+.ambito-item::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-black);
+  transition: width 0.4s ease;
+  margin-top: 16px;
+}
+
+.ambito-item:hover::after {
+  width: 40px;
+}
+
+/* Number: add transform-origin so scale originates from left */
+.ambito-number {
+  display: inline-block;
+  transform-origin: left center;
+  transition: transform 0.3s ease, -webkit-text-stroke-color 0.3s ease;
+}
+
+.ambito-item:hover .ambito-number {
+  transform: scale(1.15);
+  -webkit-text-stroke-color: var(--color-mid);
+}
+
+/* ─────────────────────────────────────────
+   14. ADVENIRE SECTION
+───────────────────────────────────────── */
+.advenire-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.advenire-text p {
+  font-family: var(--font-body);
+  color: var(--color-dark);
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.advenire-text strong {
+  color: var(--color-black);
+  font-weight: 600;
+}
+
+.advenire-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-black);
+  border-bottom: 1px solid var(--color-black);
+  padding-bottom: 2px;
+  transition: gap 0.2s ease, opacity 0.2s ease;
+}
+
+.advenire-link:hover {
+  gap: 14px;
+  opacity: 0.7;
+}
+
+.link-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.advenire-link:hover .link-arrow {
+  transform: translateX(4px);
+}
+
+.advenire-logo-wrap {
+  background: var(--color-accent-bg);
+  border: 1px solid var(--color-border);
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  min-height: 120px;
+}
+
+.advenire-logo {
+  max-width: 180px;
+  height: auto;
+}
+
+.advenire-logo-fallback {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: 0.25em;
+  color: var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.advenire-card {
+  border: 1px solid var(--color-border);
+  padding: 24px;
+}
+
+.advenire-card .info-grid {
+  margin-bottom: 0;
+}
+
+/* ─────────────────────────────────────────
+   15. SCROLL PROGRESS INDICATOR (sidebar)
+───────────────────────────────────────── */
+.scroll-progress-track {
+  width: 2px;
+  background-color: var(--color-border);
+  height: 60px;
+  margin: 0 auto 20px;
+}
+
+.scroll-progress-fill {
+  width: 100%;
+  height: 0;
+  background-color: var(--color-black);
+  transition: height 0.1s linear;
+}
+
+/* ─────────────────────────────────────────
+   16. CUSTOM CURSOR DOT (desktop pointer)
+───────────────────────────────────────── */
+#cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-black);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, opacity 0.2s ease, width 0.2s ease, height 0.2s ease;
+  will-change: left, top;
+}
+
+#cursor-dot.cursor-hover {
+  transform: translate(-50%, -50%) scale(3);
+  opacity: 0.15;
+}
+
+/* ─────────────────────────────────────────
+   17. BUTTON SHIMMER (primary CTA)
+───────────────────────────────────────── */
+.btn--primary {
+  overflow: hidden;
+  position: relative;
+}
+
+.btn--primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.12);
+  transition: left 0.35s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.btn--primary:hover::before {
+  left: 100%;
+}
+
+/* Ensure button text stays above shimmer layer */
+.btn--primary span,
+.btn--primary {
+  /* text is already in DOM flow — just keep z-index context */
+}
+

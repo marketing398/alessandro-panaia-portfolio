@@ -1,0 +1,424 @@
+/* =============================================================
+   ALESSANDRO PANAIA — Project Manager Edilizia Privata
+   responsive.css — Breakpoint overrides
+   ============================================================= */
+
+/* ─────────────────────────────────────────
+   TABLET: 768px – 1100px
+   Sidebar narrows, font-sizes reduce
+───────────────────────────────────────── */
+@media (max-width: 1100px) {
+  :root {
+    --sidebar-width:   220px;
+    --content-padding: 44px;
+  }
+
+  /* Hero: stack vertically */
+  .section-inner--hero {
+    flex-direction: column;
+    gap: 48px;
+    align-items: flex-start;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .hero-image-frame {
+    width: 260px;
+    height: 260px;
+  }
+
+  /* Profilo: single column */
+  .profilo-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  /* Ambiti: 2-column */
+  .ambiti-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  /* Cards: 2-column */
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Committenza: 2-column (wrap) */
+  .committenza-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Contatti: single column */
+  .contatti-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  /* Sidebar nav font size */
+  .nav-link {
+    font-size: 0.72rem;
+  }
+
+  .logo-text {
+    font-size: 0.92rem;
+  }
+}
+
+/* ─────────────────────────────────────────
+   TABLET: new element adjustments
+───────────────────────────────────────── */
+@media (max-width: 1100px) {
+  /* Advenire: stack on tablet */
+  .advenire-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  /* Stats: reduce font a bit */
+  .stat-number {
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+  }
+
+  /* Scroll progress: hide on tablet (sidebar too narrow) */
+  .scroll-progress-track {
+    display: none;
+  }
+}
+
+/* ─────────────────────────────────────────
+   MOBILE: < 768px
+   Sidebar becomes top navbar + hamburger
+───────────────────────────────────────── */
+@media (max-width: 767px) {
+  :root {
+    --content-padding: 24px;
+    --section-padding: 64px var(--content-padding);
+  }
+
+  /* ── Body: block layout (no flex row) ── */
+  body {
+    flex-direction: column;
+  }
+
+  /* ── Sidebar: fixed top bar ── */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;           /* collapsed top bar height */
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    overflow: visible;
+    z-index: 100;
+    /* Slide-open state handled by JS class .sidebar--open */
+  }
+
+  /* Sidebar open state: full-width overlay drawer */
+  .sidebar--open {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-height: 100vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Logo in top bar */
+  .sidebar-logo {
+    padding: 0 20px;
+    border-bottom: none;
+    flex: 1;
+  }
+
+  .sidebar--open .sidebar-logo {
+    padding: 28px 24px 20px;
+    border-bottom: 1px solid var(--color-border);
+    width: 100%;
+    flex: none;
+  }
+
+  .logo-text {
+    font-size: 0.82rem;
+  }
+
+  /* Navigation: hidden when collapsed */
+  .sidebar-nav {
+    display: none;
+    padding: 20px 24px;
+    gap: 0;
+  }
+
+  .sidebar--open .sidebar-nav {
+    display: flex;
+    width: 100%;
+  }
+
+  .nav-link {
+    font-size: 0.82rem;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .nav-link:last-child {
+    border-bottom: none;
+  }
+
+  /* Footer: hidden when collapsed */
+  .sidebar-footer {
+    display: none;
+    padding: 16px 24px 24px;
+    border-top: 1px solid var(--color-border);
+    width: 100%;
+  }
+
+  .sidebar--open .sidebar-footer {
+    display: block;
+  }
+
+  /* Hamburger: always visible */
+  .hamburger {
+    display: flex;
+    position: static;
+    padding: 16px 20px;
+  }
+
+  /* Hamburger → X animation when open */
+  .hamburger--active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .hamburger--active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger--active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Overlay backdrop */
+  .sidebar-overlay {
+    display: block;
+    pointer-events: none;
+  }
+
+  .sidebar-overlay.active {
+    pointer-events: auto;
+  }
+
+  /* ── Main content: offset for fixed top bar ── */
+  .main-content {
+    margin-left: 0;
+    margin-top: 60px;
+  }
+
+  /* ── Hero: full-column stacked ── */
+  .section--hero {
+    min-height: auto;
+  }
+
+  .section-inner--hero {
+    flex-direction: column;
+    gap: 36px;
+    padding-top: 52px;
+    padding-bottom: 52px;
+    align-items: flex-start;
+  }
+
+  .hero-image-frame {
+    width: 200px;
+    height: 200px;
+  }
+
+  .hero-name {
+    font-size: clamp(2.2rem, 8vw, 3rem);
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn {
+    text-align: center;
+    width: fit-content;
+  }
+
+  /* ── Section titles ── */
+  .section-title {
+    font-size: clamp(1.7rem, 6vw, 2.4rem);
+  }
+
+  /* ── Profilo: single column ── */
+  .profilo-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* ── Metodo cards: single column ── */
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .service-card {
+    padding: 32px 24px;
+  }
+
+  /* ── Ambiti: 2-column ── */
+  .ambiti-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  /* ── Committenza: single column ── */
+  .committenza-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .committenza-card {
+    padding: 32px 24px;
+  }
+
+  /* ── Contatti: single column ── */
+  .contatti-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  /* ── Deco circle: smaller ── */
+  .deco-circle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .deco-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  /* ── Footer ── */
+  .site-footer {
+    padding: 24px var(--content-padding);
+    text-align: center;
+  }
+
+  /* ── Stats row: smaller font on mobile ── */
+  .stats-row {
+    padding: 20px 0;
+  }
+
+  .stat-number {
+    font-size: 1.8rem;
+  }
+
+  .stat-suffix {
+    font-size: 1rem;
+  }
+
+  .stat-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+  }
+
+  /* ── Advenire: single column on mobile ── */
+  .advenire-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* ── Metodo accordion: activate on mobile ── */
+  .card-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+  }
+
+  .card-collapsible {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 0;
+  }
+
+  .service-card.is-open .card-collapsible {
+    max-height: 500px;
+    margin-top: 14px;
+  }
+
+  /* First card open by default for UX */
+  .cards-grid .service-card:first-child .card-collapsible {
+    max-height: 500px;
+    margin-top: 14px;
+  }
+
+  /* ── Hero bg lines: hide on small screens ── */
+  .hero-bg-lines {
+    display: none;
+  }
+
+  /* ── Scroll progress: hidden on mobile ── */
+  .scroll-progress-track {
+    display: none;
+  }
+
+  /* ── Cursor dot: never shown on mobile (pointer:fine handles it) ── */
+  #cursor-dot {
+    display: none !important;
+  }
+
+  /* ── Committenza card-cta: always visible on mobile (no hover) ── */
+  .card-cta {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─────────────────────────────────────────
+   VERY SMALL SCREENS: < 400px
+───────────────────────────────────────── */
+@media (max-width: 400px) {
+  .ambiti-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-name {
+    font-size: 2rem;
+  }
+
+  .hero-image-frame {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+/* ─────────────────────────────────────────
+   WIDE DESKTOP: > 1400px
+   Allow more breathing room
+───────────────────────────────────────── */
+@media (min-width: 1400px) {
+  :root {
+    --sidebar-width:   300px;
+    --content-padding: 80px;
+  }
+
+  .section-inner--hero {
+    gap: 96px;
+  }
+
+  .hero-image-frame {
+    width: 360px;
+    height: 360px;
+  }
+}

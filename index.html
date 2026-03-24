@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- SEO -->
+  <title>Alessandro Panaia | Project Manager Edilizia Privata — Milano</title>
+  <meta name="description" content="Project Manager specializzato nel governo strategico della commessa edilizia privata. Metodo G.C.C.P. Ristrutturazioni, nuove costruzioni e riqualificazioni a Milano.">
+  <meta name="author" content="Alessandro Panaia">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.alessandropanaiapm.it/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Alessandro Panaia | Project Manager Edilizia Privata">
+  <meta property="og:description" content="Governo strategico della commessa edilizia. Metodo G.C.C.P. Milano e provincia.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.alessandropanaiapm.it/">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Alessandro Panaia",
+    "jobTitle": "Project Manager",
+    "description": "Project Manager specializzato nel governo strategico della commessa edilizia privata con il Metodo G.C.C.P.",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Advenire S.r.l."
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Milano",
+      "addressRegion": "MI",
+      "addressCountry": "IT"
+    },
+    "email": "info@alessandropanaiapm.it",
+    "url": "https://www.alessandropanaiapm.it/",
+    "knowsAbout": [
+      "Project Management",
+      "Edilizia Privata",
+      "Ristrutturazioni",
+      "Nuove Costruzioni",
+      "Metodo G.C.C.P."
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts: Montserrat + Muli + Lora (matching Tokyo theme) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;700;800&family=Muli:wght@300;400;600&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- AOS — Animate On Scroll -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       SIDEBAR — Fixed left column
+  ============================================================ -->
+  <aside class="sidebar" id="sidebar" role="navigation" aria-label="Navigazione principale">
+
+    <!-- Mobile hamburger (visible < 768px) -->
+    <button class="hamburger" id="hamburger" aria-label="Apri menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Logo / Name -->
+    <div class="sidebar-logo">
+      <a href="#hero" class="logo-link" aria-label="Home — Alessandro Panaia">
+        <span class="logo-text">ALESSANDRO<br>PANAIA</span>
+      </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav" id="sidebar-nav">
+      <a href="#profilo" class="nav-link" data-section="profilo">Profilo</a>
+      <a href="#advenire" class="nav-link" data-section="advenire">Advenire</a>
+      <a href="#metodo" class="nav-link" data-section="metodo">Metodo</a>
+      <a href="#ambiti" class="nav-link" data-section="ambiti">Ambiti</a>
+      <a href="#committenza" class="nav-link" data-section="committenza">Committenza</a>
+      <a href="#contatti" class="nav-link" data-section="contatti">Contatti</a>
+    </nav>
+
+    <!-- Scroll progress indicator -->
+    <div class="scroll-progress-track">
+      <div class="scroll-progress-fill" id="scrollProgress"></div>
+    </div>
+
+    <!-- Sidebar footer -->
+    <div class="sidebar-footer">
+      <p>© 2025 Alessandro Panaia</p>
+      <p>P.IVA [da inserire]</p>
+    </div>
+
+  </aside>
+
+  <!-- Overlay (mobile drawer backdrop) -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ============================================================
+       MAIN CONTENT — Scrollable right column
+  ============================================================ -->
+  <main class="main-content" id="mainContent">
+
+    <!-- ────────────────────────────────────────────────
+         SECTION HERO — Prima impressione
+    ──────────────────────────────────────────────── -->
+    <section class="section section--hero" id="hero" aria-labelledby="hero-heading">
+
+      <!-- Decorative animated background lines -->
+      <div class="hero-bg-lines" aria-hidden="true">
+        <svg viewBox="0 0 600 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0"   y1="700" x2="600" y2="0" stroke="#e0e0e0" stroke-width="1" class="hero-line hero-line--1"/>
+          <line x1="100" y1="700" x2="700" y2="0" stroke="#e8e8e8" stroke-width="1" class="hero-line hero-line--2"/>
+          <line x1="100" y1="700" x2="500" y2="0" stroke="#ebebeb" stroke-width="1" class="hero-line hero-line--3"/>
+        </svg>
+      </div>
+
+      <div class="section-inner section-inner--hero">
+
+        <!-- Left: Profile image -->
+        <div class="hero-image" data-aos="fade-right" data-aos-duration="700">
+          <div class="hero-image-frame">
+            <img
+              src="assets/images/placeholder-profile.svg"
+              alt="Alessandro Panaia — Project Manager Edilizia Privata"
+              width="400"
+              height="400"
+              loading="eager"
+            >
+          </div>
+        </div>
+
+        <!-- Right: Text content -->
+        <div class="hero-content" data-aos="fade-left" data-aos-duration="700" data-aos-delay="100">
+          <!-- Decorative circle -->
+          <div class="deco-circle" aria-hidden="true">
+            <span class="deco-dot"></span>
+          </div>
+
+          <span class="section-label">Project Manager</span>
+
+          <h1 class="hero-name" id="hero-heading">Alessandro<br>Panaia</h1>
+
+          <h2 class="hero-tagline">Governo strategico<br>della commessa edilizia</h2>
+
+          <p class="hero-body">
+            Coordino e gestisco commesse edili private con metodo,
+            esperienza diretta di cantiere e orientamento al risultato.
+          </p>
+
+          <p class="hero-meta">Project Manager · Edilizia Privata · Milano</p>
+
+          <div class="hero-buttons">
+            <a href="#metodo" class="btn btn--primary">Scopri il Metodo G.C.C.P.</a>
+            <a href="#contatti" class="btn btn--outline">Contattami</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ────────────────────────────────────────────────
+         SECTION PROFILO — Chi sono
+    ──────────────────────────────────────────────── -->
+    <section class="section section--light" id="profilo" aria-labelledby="profilo-heading">
+      <div class="section-inner">
+
+        <!-- Section header -->
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-label">Chi sono</span>
+          <h2 class="section-title" id="profilo-heading">Profilo Professionale</h2>
+          <div class="deco-circle" aria-hidden="true">
+            <span class="deco-dot"></span>
+          </div>
+        </div>
+
+        <!-- Animated stat counters row -->
+        <div class="stats-row" data-aos="fade-up" data-aos-delay="60">
+          <div class="stat-item">
+            <div class="stat-number-wrap">
+              <span class="stat-number" data-target="10">0</span><span class="stat-suffix">+</span>
+            </div>
+            <span class="stat-label">Anni di esperienza</span>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number-wrap">
+              <span class="stat-number" data-target="50">0</span><span class="stat-suffix">+</span>
+            </div>
+            <span class="stat-label">Commesse gestite</span>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number-wrap">
+              <span class="stat-number" data-target="3">0</span><span class="stat-suffix"></span>
+            </div>
+            <span class="stat-label">Profili di committenza</span>
+          </div>
+        </div>
+
+        <!-- Two-column layout: bio + info -->
+        <div class="profilo-grid">
+
+          <!-- Left: Bio text -->
+          <div class="profilo-bio" data-aos="fade-up" data-aos-delay="100">
+            <p>
+              Opero nel settore dell'edilizia privata come Project Manager
+              con un'esperienza maturata direttamente in cantiere. La mia formazione
+              tecnica si affianca a una pratica operativa continuativa, che mi consente
+              di leggere le dinamiche reali di una commessa e intervenire con efficacia
+              in ogni fase.
+            </p>
+            <p>
+              Collaboro con Advenire S.r.l. integrando le competenze di
+              gestione con la conoscenza tecnica del processo edilizio: dalla lettura
+              del progetto alla direzione delle lavorazioni, dalla gestione dei
+              subappaltatori al controllo economico della commessa.
+            </p>
+            <p>
+              Il mio approccio è pratico e strutturato: non mi limito
+              alla pianificazione teorica, ma presidio l'esecuzione con continuità,
+              gestendo le criticità con metodo e orientando ogni decisione al rispetto
+              degli obiettivi concordati.
+            </p>
+          </div>
+
+          <!-- Right: Info grid + skills -->
+          <div class="profilo-details" data-aos="fade-up" data-aos-delay="200">
+
+            <!-- Info grid -->
+            <div class="info-grid">
+              <div class="info-row">
+                <span class="info-label">Ruolo</span>
+                <span class="info-value">Project Manager</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Settore</span>
+                <span class="info-value">Edilizia Privata</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Società</span>
+                <span class="info-value">Advenire S.r.l.</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Sede</span>
+                <span class="info-value">Milano e provincia</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Metodo</span>
+                <span class="info-value">G.C.C.P.</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Disponibile</span>
+                <span class="info-value">Sì</span>
+              </div>
+            </div>
+
+            <!-- Skill bars -->
+            <div class="skills-section">
+              <div class="skill-item" data-aos="fade-up" data-aos-delay="250">
+                <div class="skill-header">
+                  <span class="skill-name">Gestione commessa</span>
+                  <span class="skill-pct">98%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="98"></div>
+                </div>
+              </div>
+              <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="skill-header">
+                  <span class="skill-name">Coordinamento cantieri</span>
+                  <span class="skill-pct">90%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="90"></div>
+                </div>
+              </div>
+              <div class="skill-item" data-aos="fade-up" data-aos-delay="350">
+                <div class="skill-header">
+                  <span class="skill-name">Gestione criticità</span>
+                  <span class="skill-pct">95%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="95"></div>
+                </div>
+              </div>
+              <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="skill-header">
+                  <span class="skill-name">Pratiche amministrative</span>
+                  <span class="skill-pct">85%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" data-width="85"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ────────────────────────────────────────────────
+         SECTION ADVENIRE — Contesto professionale
+    ──────────────────────────────────────────────── -->
+    <section class="section section--white" id="advenire" aria-labelledby="advenire-heading">
+      <div class="section-inner">
+
+        <!-- Section header -->
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-label">Il contesto</span>
+          <h2 class="section-title" id="advenire-heading">Advenire S.r.l.</h2>
+          <div class="deco-circle" aria-hidden="true">
+            <span class="deco-dot"></span>
+          </div>
+        </div>
+
+        <!-- Two column: text left, logo+details right -->
+        <div class="advenire-grid" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="advenire-text">
+            <p>Collaboro con <strong>Advenire S.r.l.</strong> come partner
+            operativo nell'ambito della gestione e del coordinamento di commesse
+            edili private. Advenire opera nel settore delle costruzioni e
+            dell'ingegneria, con un approccio orientato alla qualità del processo
+            e alla soddisfazione del committente.</p>
+
+            <p>All'interno di questo contesto professionale porto il mio contributo
+            specifico nel governo della commessa: dalla pianificazione iniziale
+            al presidio dell'esecuzione, garantendo continuità operativa e
+            controllo strutturato in ogni fase del progetto edilizio.</p>
+
+            <p>La collaborazione con Advenire rafforza la capacità di risposta
+            su commesse complesse, integrando competenze tecniche, gestionali
+            e amministrative in un modello di lavoro coordinato e documentato.</p>
+
+            <a href="https://www.advenire.it" target="_blank" rel="noopener noreferrer"
+               class="advenire-link">
+              Visita advenire.it
+              <span class="link-arrow">→</span>
+            </a>
+          </div>
+
+          <div class="advenire-aside">
+            <!-- Logo placeholder — place advenire-logo.png in assets/images/ -->
+            <div class="advenire-logo-wrap">
+              <img src="assets/images/advenire-logo.png"
+                   alt="Advenire S.r.l. — logo"
+                   class="advenire-logo"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="advenire-logo-fallback" style="display:none">
+                <span>ADVENIRE</span>
+              </div>
+            </div>
+
+            <!-- Key info card -->
+            <div class="advenire-card">
+              <div class="info-row">
+                <span class="info-label">Settore</span>
+                <span class="info-value">Costruzioni ed Ingegneria</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Sede</span>
+                <span class="info-value">Milano, Italia</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Ruolo AP</span>
+                <span class="info-value">Partner operativo PM</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Sito</span>
+                <span class="info-value">
+                  <a href="https://www.advenire.it" target="_blank"
+                     rel="noopener noreferrer" class="contact-link">advenire.it</a>
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ────────────────────────────────────────────────
+         SECTION METODO — Il Metodo G.C.C.P.
+    ──────────────────────────────────────────────── -->
+    <section class="section section--white" id="metodo" aria-labelledby="metodo-heading">
+      <div class="section-inner">
+
+        <!-- Section header -->
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-label">Il mio approccio</span>
+          <h2 class="section-title" id="metodo-heading">Il Metodo G.C.C.P.</h2>
+          <div class="deco-circle" aria-hidden="true">
+            <span class="deco-dot"></span>
+          </div>
+        </div>
+
+        <!-- Intro -->
+        <div class="metodo-intro" data-aos="fade-up" data-aos-delay="100">
+          <p>
+            Il Metodo G.C.C.P. — <em>Governo Completo della Commessa di Progetto</em> —
+            è il sistema strutturato con cui governo ogni commessa edile.
+            Sviluppato dall'esperienza diretta, articola il processo in fasi
+            distinte e verificabili, garantendo controllo continuo, comunicazione
+            chiara e gestione proattiva delle criticità.
+          </p>
+        </div>
+
+        <!-- Service cards grid (3×2) — desktop hover / mobile accordion -->
+        <div class="cards-grid">
+
+          <!-- Card 01 -->
+          <article class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-number">01</div>
+            <div class="card-header">
+              <h3 class="card-title">Analisi Strategica Iniziale</h3>
+              <button class="card-toggle-btn" aria-expanded="false" aria-label="Espandi sezione">
+                <span class="card-toggle-icon" aria-hidden="true">+</span>
+              </button>
+            </div>
+            <div class="card-collapsible">
+              <p class="card-body">
+                Raccolta e verifica della documentazione tecnica. Analisi del progetto,
+                del contesto e delle condizioni al contorno. Definizione del
+                cronoprogramma lavori e struttura della commessa.
+              </p>
+              <div class="card-line" aria-hidden="true"></div>
+            </div>
+          </article>
+
+          <!-- Card 02 -->
+          <article class="service-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="card-number">02</div>
+            <div class="card-header">
+              <h3 class="card-title">Pianificazione Operativa</h3>
+              <button class="card-toggle-btn" aria-expanded="false" aria-label="Espandi sezione">
+                <span class="card-toggle-icon" aria-hidden="true">+</span>
+              </button>
+            </div>
+            <div class="card-collapsible">
+              <p class="card-body">
+                Selezione delle imprese e pianificazione economica. Condizioni chiare
+                per un presidio orientato al risultato. Definizione delle responsabilità
+                e degli obiettivi verificabili di commessa.
+              </p>
+              <div class="card-line" aria-hidden="true"></div>
+            </div>
+          </article>
+
+          <!-- Card 03 -->
+          <article class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-number">03</div>
+            <div class="card-header">
+              <h3 class="card-title">Esecuzione Coordinata</h3>
+              <button class="card-toggle-btn" aria-expanded="false" aria-label="Espandi sezione">
+                <span class="card-toggle-icon" aria-hidden="true">+</span>
+              </button>
+            </div>
+            <div class="card-collapsible">
+              <p class="card-body">
+                Allineamento operativo tra imprese, fornitori e figure tecniche.
+                Presidio in cantiere con continuità e gestione delle interferenze
+                nell'esecuzione delle lavorazioni.
+              </p>
+              <div class="card-line" aria-hidden="true"></div>
+            </div>
+          </article>
+
+          <!-- Card 04 -->
+          <article class="service-card" data-aos="fade-up" data-aos-delay="250">
+            <div class="card-number">04</div>
+            <div class="card-header">
+              <h3 class="card-title">Controllo Continuo</h3>
+              <button class="card-toggle-btn" aria-expanded="false" aria-label="Espandi sezione">
+                <span class="card-toggle-icon" aria-hidden="true">+</span>
+              </button>
+            </div>
+            <div class="card-collapsible">
+              <p class="card-body">
+                Verifica periodica mediante verbali e sopralluoghi con controllo
+                di tempi, costi e avanzamento lavori. Rendicontazione accurata e
+                costante rispetto alla distribuzione delle priorità.
+              </p>
+              <div class="card-line" aria-hidden="true"></div>
+            </div>
+          </article>
+
+          <!-- Card 05 -->
+          <article class="service-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-number">05</div>
+            <div class="card-header">
+              <h3 class="card-title">Gestione delle Criticità</h3>
+              <button class="card-toggle-btn" aria-expanded="false" aria-label="Espandi sezione">
+                <span class="card-toggle-icon" aria-hidden="true">+</span>
+              </button>
+            </div>
+            <div class="card-collapsible">
+              <p class="card-body">
+                Azioni tempestive con decisionalità e definizione di soluzioni
+                operative formalizzate. Gestione delle varianti e degli imprevisti
+                con approccio strutturato e documentato.
+              </p>
+              <div class="card-line" aria-hidden="true"></div>
+            </div>
+          </article>
+
+          <!-- Card 06 -->
+          <article class="service-card" data-aos="fade-up" data-aos-delay="350">
+            <div class="card-number">06</div>
+            <div class="card-header">
+              <h3 class="card-title">Chiusura Controllata</h3>
+              <button class="card-toggle-btn" aria-expanded="false" aria-label="Espandi sezione">
+                <span class="card-toggle-icon" aria-hidden="true">+</span>
+              </button>
+            </div>
+            <div class="card-collapsible">
+              <p class="card-body">
+                Verifica finale della realizzazione, consolidamento documentale e
+                gestione degli elementi conclusivi. Supporto post-cantiere e
+                risoluzione delle pendenze.
+              </p>
+              <div class="card-line" aria-hidden="true"></div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ────────────────────────────────────────────────
+         SECTION AMBITI — Ambiti di Intervento
+    ──────────────────────────────────────────────── -->
+    <section class="section section--light" id="ambiti" aria-labelledby="ambiti-heading">
+      <div class="section-inner">
+
+        <!-- Section header -->
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-label">Cosa faccio</span>
+          <h2 class="section-title" id="ambiti-heading">Ambiti di Intervento</h2>
+          <div class="deco-circle" aria-hidden="true">
+            <span class="deco-dot"></span>
+          </div>
+        </div>
+
+        <!-- Subtitle -->
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="80">
+          Ristrutturazioni residenziali · Nuove costruzioni ·
+          Riqualificazioni · Manutenzioni straordinarie
+        </p>
+
+        <!-- 4-column items grid -->
+        <div class="ambiti-grid">
+
+          <article class="ambito-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="ambito-number">01</div>
+            <h3 class="ambito-title">Ristrutturazioni Residenziali</h3>
+            <p class="ambito-body">
+              Gestione completa di interventi su abitazioni esistenti:
+              coordinamento imprese, controllo qualità e tempi,
+              interfaccia con professionisti e committente.
+            </p>
+          </article>
+
+          <article class="ambito-item" data-aos="fade-up" data-aos-delay="150">
+            <div class="ambito-number">02</div>
+            <h3 class="ambito-title">Nuove Costruzioni</h3>
+            <p class="ambito-body">
+              Presidio del processo edilizio dalla progettazione esecutiva
+              alla consegna: pianificazione operativa, gestione appalti
+              e controllo avanzamento lavori.
+            </p>
+          </article>
+
+          <article class="ambito-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="ambito-number">03</div>
+            <h3 class="ambito-title">Riqualificazioni</h3>
+            <p class="ambito-body">
+              Interventi su edifici esistenti con obiettivi di efficienza
+              energetica, adeguamento normativo o valorizzazione
+              del patrimonio immobiliare.
+            </p>
+          </article>
+
+          <article class="ambito-item" data-aos="fade-up" data-aos-delay="250">
+            <div class="ambito-number">04</div>
+            <h3 class="ambito-title">Manutenzioni Straordinarie</h3>
+            <p class="ambito-body">
+              Coordinamento di interventi complessi su edifici in uso:
+              gestione delle interferenze, minimizzazione disagi e
+              controllo qualità delle lavorazioni.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ────────────────────────────────────────────────
+         SECTION COMMITTENZA — Target di Committenza
+    ──────────────────────────────────────────────── -->
+    <section class="section section--white" id="committenza" aria-labelledby="committenza-heading">
+      <div class="section-inner">
+
+        <!-- Section header -->
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-label">Per chi lavoro</span>
+          <h2 class="section-title" id="committenza-heading">Target di Committenza</h2>
+          <div class="deco-circle" aria-hidden="true">
+            <span class="deco-dot"></span>
+          </div>
+        </div>
+
+        <!-- Intro -->
+        <p class="section-intro" data-aos="fade-up" data-aos-delay="80">
+          Offro supporto strutturato a tre profili distinti di committenza,
+          con modalità operative calibrate sulle esigenze specifiche di ciascuno.
+        </p>
+
+        <!-- 3-column committenza cards -->
+        <div class="committenza-grid">
+
+          <!-- Card 1: Privati -->
+          <article class="committenza-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="committenza-card-header">
+              <h3 class="committenza-title">Committenza Privata</h3>
+              <span class="committenza-subtitle">Privati e Famiglie</span>
+            </div>
+            <p class="committenza-body">
+              Supporto al cliente privato nella gestione dell'intervento edilizio:
+              coordinamento tecnico, controllo di tempi e costi, interfaccia con
+              progettisti e imprese, gestione pratiche amministrative.
+            </p>
+            <ul class="committenza-list">
+              <li>Coordinamento delle imprese</li>
+              <li>Monitoraggio costi e tempi</li>
+              <li>Gestione attività tecniche e organizzative</li>
+              <li>Analisi di sopralluogo e nuovi cantieri</li>
+              <li>Supervisione delle lavorazioni e delle fasi di lavoro</li>
+            </ul>
+            <div class="card-cta">
+              <a href="#contatti" class="card-link">Parlami del tuo progetto →</a>
+            </div>
+          </article>
+
+          <!-- Card 2: Imprese -->
+          <article class="committenza-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="committenza-card-header">
+              <h3 class="committenza-title">Committenza Impresa</h3>
+              <span class="committenza-subtitle">Imprese Edili</span>
+            </div>
+            <p class="committenza-body">
+              Affiancamento all'impresa nella pianificazione operativa e nel
+              coordinamento di cantiere. Gestione dei SAL, delle varianti e
+              delle criticità con approccio strutturato e documentato.
+            </p>
+            <ul class="committenza-list">
+              <li>Pianificazione operativa e cronoprogramma di cantiere</li>
+              <li>Controllo dei SAL</li>
+              <li>Formula degli appalti e gestione fornitori</li>
+              <li>Verbalizzazione degli appalti e avanzamento dei lavori</li>
+              <li>Coordinamento risorse interne al cantiere</li>
+              <li>Gestione delle criticità operative e di cantiere</li>
+            </ul>
+            <div class="card-cta">
+              <a href="#contatti" class="card-link">Parlami del tuo progetto →</a>
+            </div>
+          </article>
+
+          <!-- Card 3: Studi Professionali -->
+          <article class="committenza-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="committenza-card-header">
+              <h3 class="committenza-title">Studi Professionali</h3>
+              <span class="committenza-subtitle">Studi Tecnici e Progettisti</span>
+            </div>
+            <p class="committenza-body">
+              Collaborazione con studi tecnici e progettisti per supportare
+              la Direzione Lavori e la gestione del processo di cantiere:
+              verbalizzazioni, controllo qualità e continuità operativa.
+            </p>
+            <ul class="committenza-list">
+              <li>Supporto alla Direzione Lavori nella gestione operativa del cantiere</li>
+              <li>Pianificazione delle fasi e coordinamento tra imprese e fornitori</li>
+              <li>Verbalizzazione e documentazione di avanzamento lavori</li>
+              <li>Controllo qualità e verifica delle lavorazioni</li>
+              <li>Gestione delle relazioni con le imprese a supporto dello studio</li>
+            </ul>
+            <div class="card-cta">
+              <a href="#contatti" class="card-link">Parlami del tuo progetto →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ────────────────────────────────────────────────
+         SECTION CONTATTI — Lavoriamo insieme
+    ──────────────────────────────────────────────── -->
+    <section class="section section--light" id="contatti" aria-labelledby="contatti-heading">
+      <div class="section-inner">
+
+        <!-- Section header -->
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-label">Lavoriamo insieme</span>
+          <h2 class="section-title" id="contatti-heading">Contatti</h2>
+          <div class="deco-circle" aria-hidden="true">
+            <span class="deco-dot"></span>
+          </div>
+        </div>
+
+        <!-- Two-column: contact info + note -->
+        <div class="contatti-grid">
+
+          <!-- Left: Contact details -->
+          <div class="contatti-info" data-aos="fade-up" data-aos-delay="100">
+            <div class="info-grid">
+              <div class="info-row">
+                <span class="info-label">Email</span>
+                <span class="info-value">
+                  <a href="mailto:info@alessandropanaiapm.it" class="contact-link">
+                    info@alessandropanaiapm.it
+                  </a>
+                </span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Sede</span>
+                <span class="info-value">Milano e provincia</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">P.IVA</span>
+                <span class="info-value">[da inserire]</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">LinkedIn</span>
+                <span class="info-value">
+                  <a href="#" class="contact-link">[da inserire]</a>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Note -->
+          <div class="contatti-note" data-aos="fade-up" data-aos-delay="180">
+            <blockquote class="contact-quote">
+              <p>
+                Ogni progetto ha le sue specificità. Preferisco un primo
+                confronto diretto per valutare insieme come posso essere
+                utile alla tua commessa.
+              </p>
+            </blockquote>
+            <div class="contact-signature">
+              <p class="sig-name">Alessandro Panaia</p>
+              <p class="sig-role">Project Manager — Edilizia Privata</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Section footer / global footer -->
+      <footer class="site-footer" role="contentinfo">
+        <div class="footer-inner">
+          <p>
+            © 2025 Alessandro Panaia · Project Manager Edilizia Privata ·
+            Milano · P.IVA [da inserire]
+          </p>
+        </div>
+      </footer>
+
+    </section>
+
+  </main><!-- /main-content -->
+
+  <!-- AOS Library -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
