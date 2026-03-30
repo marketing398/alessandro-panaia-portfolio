@@ -1214,8 +1214,60 @@ em {
 }
 
 /* ─────────────────────────────────────────
-   14. ADVENIRE SECTION
+   14. ADVENIRE SECTION — branded verde/corallo
 ───────────────────────────────────────── */
+:root {
+  --adv-green:  #1B3D2A;
+  --adv-coral:  #F2A07C;
+  --adv-cream:  #F5EFE6;
+}
+
+.advenire-section {
+  background-color: var(--adv-green);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Icona "A" grande in filigrana di sfondo */
+.advenire-bg-icon {
+  position: absolute;
+  top: -40px;
+  right: -60px;
+  width: 480px;
+  opacity: 0.06;
+  pointer-events: none;
+  user-select: none;
+}
+
+.advenire-bg-icon img {
+  width: 100%;
+  height: auto;
+}
+
+/* Logo corallo in cima */
+.advenire-logo-top {
+  margin-bottom: 40px;
+}
+
+.advenire-logo-main {
+  height: 36px;
+  width: auto;
+}
+
+/* Header */
+.advenire-header {
+  margin-bottom: 48px;
+}
+
+.advenire-label {
+  color: var(--adv-coral) !important;
+}
+
+.advenire-title {
+  color: var(--adv-cream) !important;
+}
+
+/* Grid */
 .advenire-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
@@ -1223,19 +1275,21 @@ em {
   align-items: start;
 }
 
+/* Testo */
 .advenire-text p {
   font-family: var(--font-body);
-  color: var(--color-dark);
-  line-height: 1.8;
+  color: rgba(245, 239, 230, 0.78);
+  line-height: 1.85;
   margin-bottom: 20px;
   font-size: 0.95rem;
 }
 
 .advenire-text strong {
-  color: var(--color-black);
+  color: var(--adv-cream);
   font-weight: 600;
 }
 
+/* CTA link */
 .advenire-link {
   display: inline-flex;
   align-items: center;
@@ -1246,15 +1300,15 @@ em {
   font-size: 0.8rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-black);
-  border-bottom: 1px solid var(--color-black);
+  color: var(--adv-coral);
+  border-bottom: 1px solid var(--adv-coral);
   padding-bottom: 2px;
   transition: gap 0.2s ease, opacity 0.2s ease;
 }
 
 .advenire-link:hover {
   gap: 14px;
-  opacity: 0.7;
+  opacity: 0.75;
 }
 
 .link-arrow {
@@ -1266,40 +1320,72 @@ em {
   transform: translateX(4px);
 }
 
-.advenire-logo-wrap {
-  background: var(--color-accent-bg);
-  border: 1px solid var(--color-border);
-  padding: 40px;
+/* Aside: icona + wordmark verde */
+.advenire-aside-logo {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
-  min-height: 120px;
+  gap: 14px;
+  margin-bottom: 28px;
+  padding: 24px 28px;
+  background: rgba(245, 239, 230, 0.06);
+  border: 1px solid rgba(245, 239, 230, 0.12);
 }
 
-.advenire-logo {
-  max-width: 180px;
-  height: auto;
+.advenire-aside-icon {
+  height: 40px;
+  width: auto;
 }
 
-.advenire-logo-fallback {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.5rem;
-  letter-spacing: 0.25em;
-  color: var(--color-black);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.advenire-aside-wordmark {
+  height: 22px;
+  width: auto;
 }
 
+/* Info card */
 .advenire-card {
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(242, 160, 124, 0.35);
   padding: 24px;
+  background: rgba(242, 160, 124, 0.06);
 }
 
-.advenire-card .info-grid {
-  margin-bottom: 0;
+.advenire-card .info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(245, 239, 230, 0.1);
+  gap: 16px;
+}
+
+.advenire-card .info-row:last-child {
+  border-bottom: none;
+}
+
+.advenire-card .info-label {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--adv-coral);
+  flex-shrink: 0;
+}
+
+.advenire-card .info-value {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--adv-cream);
+  text-align: right;
+}
+
+.advenire-card-link {
+  color: var(--adv-coral);
+  border-bottom: 1px solid rgba(242, 160, 124, 0.4);
+  transition: opacity 0.2s ease;
+}
+
+.advenire-card-link:hover {
+  opacity: 0.7;
 }
 
 /* ─────────────────────────────────────────

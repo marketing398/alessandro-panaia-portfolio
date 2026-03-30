@@ -87,6 +87,10 @@
     grid-template-columns: 1fr;
     gap: 36px;
   }
+  .advenire-bg-icon {
+    width: 320px;
+    right: -40px;
+  }
 
   /* Stats: reduce font a bit */
   .stat-number {
