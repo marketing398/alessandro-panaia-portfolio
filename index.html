@@ -98,7 +98,7 @@
 
     <!-- Sidebar footer -->
     <div class="sidebar-footer">
-      <p>© 2025 Alessandro Panaia</p>
+      <p>© 2026 Alessandro Panaia</p>
       <p>P.IVA [da inserire]</p>
     </div>
 
@@ -623,80 +623,125 @@
           con modalità operative calibrate sulle esigenze specifiche di ciascuno.
         </p>
 
-        <!-- 3-column committenza cards -->
-        <div class="committenza-grid">
+        <!-- Interactive tabs -->
+        <div class="committenza-tabs" data-aos="fade-up" data-aos-delay="120">
 
-          <!-- Card 1: Privati -->
-          <article class="committenza-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="committenza-card-header">
-              <h3 class="committenza-title">Committenza Privata</h3>
-              <span class="committenza-subtitle">Privati e Famiglie</span>
-            </div>
-            <p class="committenza-body">
-              Supporto al cliente privato nella gestione dell'intervento edilizio:
-              coordinamento tecnico, controllo di tempi e costi, interfaccia con
-              progettisti e imprese, gestione pratiche amministrative.
-            </p>
-            <ul class="committenza-list">
-              <li>Coordinamento delle imprese</li>
-              <li>Monitoraggio costi e tempi</li>
-              <li>Gestione attività tecniche e organizzative</li>
-              <li>Analisi di sopralluogo e nuovi cantieri</li>
-              <li>Supervisione delle lavorazioni e delle fasi di lavoro</li>
-            </ul>
-            <div class="card-cta">
-              <a href="#contatti" class="card-link">Parlami del tuo progetto →</a>
-            </div>
-          </article>
+          <!-- Tab navigation -->
+          <div class="ctab-nav" role="tablist" aria-label="Profili di committenza">
+            <button class="ctab-btn ctab-btn--active" role="tab"
+                    aria-selected="true" aria-controls="ctab-privati"
+                    data-ctab="privati" id="ctab-btn-privati">
+              <span class="ctab-num">01</span>
+              <span class="ctab-label">Committenza Privata</span>
+              <span class="ctab-sub">Privati e Famiglie</span>
+            </button>
+            <button class="ctab-btn" role="tab"
+                    aria-selected="false" aria-controls="ctab-imprese"
+                    data-ctab="imprese" id="ctab-btn-imprese">
+              <span class="ctab-num">02</span>
+              <span class="ctab-label">Committenza Impresa</span>
+              <span class="ctab-sub">Imprese Edili</span>
+            </button>
+            <button class="ctab-btn" role="tab"
+                    aria-selected="false" aria-controls="ctab-studi"
+                    data-ctab="studi" id="ctab-btn-studi">
+              <span class="ctab-num">03</span>
+              <span class="ctab-label">Studi Professionali</span>
+              <span class="ctab-sub">Studi Tecnici e Progettisti</span>
+            </button>
+          </div>
 
-          <!-- Card 2: Imprese -->
-          <article class="committenza-card" data-aos="fade-up" data-aos-delay="150">
-            <div class="committenza-card-header">
-              <h3 class="committenza-title">Committenza Impresa</h3>
-              <span class="committenza-subtitle">Imprese Edili</span>
-            </div>
-            <p class="committenza-body">
-              Affiancamento all'impresa nella pianificazione operativa e nel
-              coordinamento di cantiere. Gestione dei SAL, delle varianti e
-              delle criticità con approccio strutturato e documentato.
-            </p>
-            <ul class="committenza-list">
-              <li>Pianificazione operativa e cronoprogramma di cantiere</li>
-              <li>Controllo dei SAL</li>
-              <li>Formula degli appalti e gestione fornitori</li>
-              <li>Verbalizzazione degli appalti e avanzamento dei lavori</li>
-              <li>Coordinamento risorse interne al cantiere</li>
-              <li>Gestione delle criticità operative e di cantiere</li>
-            </ul>
-            <div class="card-cta">
-              <a href="#contatti" class="card-link">Parlami del tuo progetto →</a>
-            </div>
-          </article>
+          <!-- Tab panels -->
+          <div class="ctab-panels">
 
-          <!-- Card 3: Studi Professionali -->
-          <article class="committenza-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="committenza-card-header">
-              <h3 class="committenza-title">Studi Professionali</h3>
-              <span class="committenza-subtitle">Studi Tecnici e Progettisti</span>
+            <!-- Panel 01: Privati -->
+            <div class="ctab-panel ctab-panel--active" id="ctab-privati"
+                 role="tabpanel" aria-labelledby="ctab-btn-privati">
+              <div class="ctab-panel-inner">
+                <div class="ctab-panel-left">
+                  <span class="ctab-panel-num" aria-hidden="true">01</span>
+                  <span class="ctab-panel-subtitle">Privati e Famiglie</span>
+                  <h3 class="ctab-panel-title">Committenza Privata</h3>
+                  <p class="ctab-panel-body">
+                    Supporto al cliente privato nella gestione dell'intervento edilizio:
+                    coordinamento tecnico, controllo di tempi e costi, interfaccia con
+                    progettisti e imprese, gestione pratiche amministrative.
+                  </p>
+                  <a href="#contatti" class="btn btn--outline">Parlami del tuo progetto</a>
+                </div>
+                <div class="ctab-panel-right">
+                  <p class="ctab-list-label">Attività incluse</p>
+                  <ul class="ctab-list">
+                    <li>Coordinamento delle imprese</li>
+                    <li>Monitoraggio costi e tempi</li>
+                    <li>Gestione attività tecniche e organizzative</li>
+                    <li>Analisi di sopralluogo e nuovi cantieri</li>
+                    <li>Supervisione delle lavorazioni e delle fasi di lavoro</li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <p class="committenza-body">
-              Collaborazione con studi tecnici e progettisti per supportare
-              la Direzione Lavori e la gestione del processo di cantiere:
-              verbalizzazioni, controllo qualità e continuità operativa.
-            </p>
-            <ul class="committenza-list">
-              <li>Supporto alla Direzione Lavori nella gestione operativa del cantiere</li>
-              <li>Pianificazione delle fasi e coordinamento tra imprese e fornitori</li>
-              <li>Verbalizzazione e documentazione di avanzamento lavori</li>
-              <li>Controllo qualità e verifica delle lavorazioni</li>
-              <li>Gestione delle relazioni con le imprese a supporto dello studio</li>
-            </ul>
-            <div class="card-cta">
-              <a href="#contatti" class="card-link">Parlami del tuo progetto →</a>
-            </div>
-          </article>
 
-        </div>
+            <!-- Panel 02: Imprese -->
+            <div class="ctab-panel" id="ctab-imprese"
+                 role="tabpanel" aria-labelledby="ctab-btn-imprese">
+              <div class="ctab-panel-inner">
+                <div class="ctab-panel-left">
+                  <span class="ctab-panel-num" aria-hidden="true">02</span>
+                  <span class="ctab-panel-subtitle">Imprese Edili</span>
+                  <h3 class="ctab-panel-title">Committenza Impresa</h3>
+                  <p class="ctab-panel-body">
+                    Affiancamento all'impresa nella pianificazione operativa e nel
+                    coordinamento di cantiere. Gestione dei SAL, delle varianti e
+                    delle criticità con approccio strutturato e documentato.
+                  </p>
+                  <a href="#contatti" class="btn btn--outline">Parlami del tuo progetto</a>
+                </div>
+                <div class="ctab-panel-right">
+                  <p class="ctab-list-label">Attività incluse</p>
+                  <ul class="ctab-list">
+                    <li>Pianificazione operativa e cronoprogramma di cantiere</li>
+                    <li>Controllo dei SAL</li>
+                    <li>Formula degli appalti e gestione fornitori</li>
+                    <li>Verbalizzazione degli appalti e avanzamento dei lavori</li>
+                    <li>Coordinamento risorse interne al cantiere</li>
+                    <li>Gestione delle criticità operative e di cantiere</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 03: Studi Professionali -->
+            <div class="ctab-panel" id="ctab-studi"
+                 role="tabpanel" aria-labelledby="ctab-btn-studi">
+              <div class="ctab-panel-inner">
+                <div class="ctab-panel-left">
+                  <span class="ctab-panel-num" aria-hidden="true">03</span>
+                  <span class="ctab-panel-subtitle">Studi Tecnici e Progettisti</span>
+                  <h3 class="ctab-panel-title">Studi Professionali</h3>
+                  <p class="ctab-panel-body">
+                    Collaborazione con studi tecnici e progettisti per supportare
+                    la Direzione Lavori e la gestione del processo di cantiere:
+                    verbalizzazioni, controllo qualità e continuità operativa.
+                  </p>
+                  <a href="#contatti" class="btn btn--outline">Parlami del tuo progetto</a>
+                </div>
+                <div class="ctab-panel-right">
+                  <p class="ctab-list-label">Attività incluse</p>
+                  <ul class="ctab-list">
+                    <li>Supporto alla Direzione Lavori nella gestione operativa del cantiere</li>
+                    <li>Pianificazione delle fasi e coordinamento tra imprese e fornitori</li>
+                    <li>Verbalizzazione e documentazione di avanzamento lavori</li>
+                    <li>Controllo qualità e verifica delle lavorazioni</li>
+                    <li>Gestione delle relazioni con le imprese a supporto dello studio</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /ctab-panels -->
+        </div><!-- /committenza-tabs -->
+
       </div>
     </section>
 
@@ -768,7 +813,7 @@
       <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
           <p>
-            © 2025 Alessandro Panaia · Project Manager Edilizia Privata ·
+            © 2026 Alessandro Panaia · Project Manager Edilizia Privata ·
             Milano · P.IVA [da inserire]
           </p>
         </div>

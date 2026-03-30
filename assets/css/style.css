@@ -17,7 +17,7 @@
   --color-muted:     #999999;   /* labels, captions */
   --color-border:    #e5e5e5;   /* dividers */
   --color-accent-bg: #f0f0f0;   /* subtle alternate section bg */
-  --color-accent:    #C8832A;   /* caramel orange accent */
+  --color-accent:    #F07800;   /* vivid construction orange */
 
   /* Typography */
   --font-heading: 'Montserrat', sans-serif;
@@ -162,14 +162,13 @@ em {
   left: 0;
   width: 0;
   height: 1px;
-  background-color: var(--color-black);
+  background-color: var(--color-accent);
   transition: width var(--transition-base);
 }
 
 .nav-link:hover,
 .nav-link.active {
   color: var(--color-black);
-  font-weight: 700;
 }
 
 .nav-link:hover::after,
@@ -317,7 +316,7 @@ em {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 1px solid var(--color-muted);
+  border: 1px solid var(--color-accent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -329,7 +328,8 @@ em {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  border: 1px solid var(--color-muted);
+  background-color: var(--color-accent);
+  border: 1px solid var(--color-accent);
 }
 
 /* ─────────────────────────────────────────
@@ -632,7 +632,7 @@ em {
 .card-line {
   width: 30px;
   height: 1px;
-  background-color: var(--color-black);
+  background-color: var(--color-accent);
 }
 
 /* ─────────────────────────────────────────
@@ -775,7 +775,7 @@ em {
 
 /* Quote block */
 .contact-quote {
-  border-left: 3px solid var(--color-black);
+  border-left: 3px solid var(--color-accent);
   padding-left: 24px;
   margin-bottom: 32px;
 }
@@ -882,8 +882,8 @@ em {
 }
 
 .service-card:hover .card-number {
-  background-color: var(--color-black);
-  color: var(--color-sidebar);
+  background-color: var(--color-accent);
+  color: #ffffff;
   padding: 3px 7px;
 }
 
@@ -895,7 +895,7 @@ em {
   left: 36px;
   width: 0;
   height: 2px;
-  background-color: var(--color-black);
+  background-color: var(--color-accent);
   transition: width 0.4s ease;
 }
 
@@ -1102,7 +1102,7 @@ em {
   display: block;
   width: 0;
   height: 1px;
-  background-color: var(--color-black);
+  background-color: var(--color-accent);
   transition: width 0.4s ease;
   margin-top: 16px;
 }
@@ -1282,7 +1282,203 @@ em {
 }
 
 /* ─────────────────────────────────────────
-   18. METODO — PDF download link
+   18. COMMITTENZA — Interactive tabs
+───────────────────────────────────────── */
+.ctab-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ctab-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  padding: 26px 32px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-right: 1px solid var(--color-border);
+  cursor: pointer;
+  text-align: left;
+  margin-bottom: -1px;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.ctab-btn:last-child {
+  border-right: none;
+}
+
+.ctab-btn:hover {
+  background-color: var(--color-accent-bg);
+}
+
+.ctab-btn.ctab-btn--active {
+  border-bottom-color: var(--color-accent);
+  background-color: var(--color-surface);
+}
+
+.ctab-num {
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--color-muted);
+  transition: color var(--transition-fast);
+}
+
+.ctab-btn.ctab-btn--active .ctab-num,
+.ctab-btn:hover .ctab-num {
+  color: var(--color-accent);
+}
+
+.ctab-label {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  line-height: 1.25;
+  transition: color var(--transition-fast);
+}
+
+.ctab-btn.ctab-btn--active .ctab-label {
+  color: var(--color-black);
+}
+
+.ctab-sub {
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* Panels wrapper */
+.ctab-panels {
+  border: 1px solid var(--color-border);
+  border-top: none;
+}
+
+.ctab-panel {
+  display: none;
+}
+
+.ctab-panel.ctab-panel--active {
+  display: block;
+  animation: ctab-in 0.3s ease forwards;
+}
+
+@keyframes ctab-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.ctab-panel-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  padding: 52px 48px;
+}
+
+.ctab-panel-num {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 4.5rem;
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-border);
+  line-height: 1;
+  margin-bottom: 18px;
+  letter-spacing: -0.04em;
+  pointer-events: none;
+}
+
+.ctab-panel-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 800;
+  color: var(--color-black);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.ctab-panel-subtitle {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 20px;
+}
+
+.ctab-panel-body {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-mid);
+  line-height: 1.85;
+  margin-bottom: 36px;
+}
+
+.ctab-panel-cta {
+  margin-top: auto;
+}
+
+.ctab-list-label {
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ctab-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.ctab-list li {
+  font-family: var(--font-body);
+  font-size: 0.87rem;
+  color: var(--color-dark);
+  padding: 13px 0 13px 20px;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+  line-height: 1.5;
+  transition: color var(--transition-fast), padding-left var(--transition-fast);
+}
+
+.ctab-list li:hover {
+  color: var(--color-black);
+  padding-left: 26px;
+}
+
+.ctab-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  transition: transform var(--transition-fast);
+}
+
+.ctab-list li:hover::before {
+  transform: translateY(-50%) scale(1.4);
+}
+
+/* ─────────────────────────────────────────
+   19. METODO — PDF download link
 ───────────────────────────────────────── */
 .card-pdf-link {
   display: inline-flex;

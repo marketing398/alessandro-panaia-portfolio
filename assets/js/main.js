@@ -308,5 +308,51 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  /* ─────────────────────────────────────────
+     11. COMMITTENZA TABS
+     Click or keyboard (←/→) to switch panels.
+  ───────────────────────────────────────── */
+  var ctabBtns   = Array.from(document.querySelectorAll('.ctab-btn'));
+  var ctabPanels = document.querySelectorAll('.ctab-panel');
+
+  function activateCtab(btn) {
+    ctabBtns.forEach(function (b) {
+      b.classList.remove('ctab-btn--active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    ctabPanels.forEach(function (p) {
+      p.classList.remove('ctab-panel--active');
+    });
+    btn.classList.add('ctab-btn--active');
+    btn.setAttribute('aria-selected', 'true');
+    var panelId = btn.getAttribute('aria-controls');
+    var panel   = panelId ? document.getElementById(panelId) : null;
+    if (panel) panel.classList.add('ctab-panel--active');
+  }
+
+  if (ctabBtns.length) {
+    ctabBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        activateCtab(btn);
+      });
+
+      // Keyboard: ← → to navigate tabs
+      btn.addEventListener('keydown', function (e) {
+        var idx = ctabBtns.indexOf(btn);
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          var next = ctabBtns[(idx + 1) % ctabBtns.length];
+          next.focus();
+          activateCtab(next);
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          var prev = ctabBtns[(idx - 1 + ctabBtns.length) % ctabBtns.length];
+          prev.focus();
+          activateCtab(prev);
+        }
+      });
+    });
+  }
+
 });
 
