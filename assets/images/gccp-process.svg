@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 900 148" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="4" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 Z" fill="#d0d0d0"/>
+    </marker>
+  </defs>
+
+  <!-- Connecting line -->
+  <line x1="75" y1="52" x2="825" y2="52" stroke="#e0e0e0" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- ── STEP 01 — Analisi ── -->
+  <circle cx="75"  cy="52" r="36" fill="#111"/>
+  <!-- Magnifier icon -->
+  <circle cx="70"  cy="46" r="10" fill="none" stroke="white" stroke-width="2"/>
+  <line   x1="77" y1="53" x2="84" y2="60" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="75"  y="76" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="9" fill="#F07800" letter-spacing="1">01</text>
+  <text x="75"  y="102" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="9" fill="#333" letter-spacing="0.5">ANALISI</text>
+  <text x="75"  y="114" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8"  fill="#888">Strategica</text>
+
+  <!-- ── STEP 02 — Pianificazione ── -->
+  <circle cx="225" cy="52" r="36" fill="#111"/>
+  <!-- Calendar/plan icon -->
+  <rect x="210" y="40" width="22" height="20" rx="2" fill="none" stroke="white" stroke-width="2"/>
+  <line x1="210" y1="46" x2="232" y2="46" stroke="white" stroke-width="1.5"/>
+  <line x1="215" y1="40" x2="215" y2="37" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <line x1="227" y1="40" x2="227" y2="37" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <rect x="213" y="50" width="4" height="4" rx="0.5" fill="white" opacity="0.7"/>
+  <rect x="221" y="50" width="4" height="4" rx="0.5" fill="white" opacity="0.7"/>
+  <rect x="213" y="56" width="4" height="4" rx="0.5" fill="#F07800"/>
+  <rect x="221" y="56" width="4" height="4" rx="0.5" fill="white" opacity="0.7"/>
+  <text x="225" y="76" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="9" fill="#F07800" letter-spacing="1">02</text>
+  <text x="225" y="102" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="9" fill="#333" letter-spacing="0.5">PIANO</text>
+  <text x="225" y="114" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8"  fill="#888">Operativo</text>
+
+  <!-- ── STEP 03 — Esecuzione ── -->
+  <circle cx="375" cy="52" r="36" fill="#111"/>
+  <!-- Hard hat / helmet icon -->
+  <path d="M358 54 Q358 40 375 38 Q392 40 392 54 Z" fill="none" stroke="white" stroke-width="2"/>
+  <line x1="355" y1="54" x2="395" y2="54" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="375" y1="38" x2="375" y2="34" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <text x="375" y="76" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="9" fill="#F07800" letter-spacing="1">03</text>
+  <text x="375" y="102" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="9" fill="#333" letter-spacing="0.5">ESECUZIONE</text>
+  <text x="375" y="114" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8"  fill="#888">Coordinata</text>
+
+  <!-- ── STEP 04 — Controllo ── -->
+  <circle cx="525" cy="52" r="36" fill="#111"/>
+  <!-- Checklist icon -->
+  <rect x="511" y="37" width="20" height="24" rx="2" fill="none" stroke="white" stroke-width="2"/>
+  <polyline points="515,46 518,49 523,43" fill="none" stroke="#F07800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="526" y1="46" x2="530" y2="46" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+  <polyline points="515,53 518,56 523,50" fill="none" stroke="#F07800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="526" y1="53" x2="530" y2="53" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="525" y="76" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="9" fill="#F07800" letter-spacing="1">04</text>
+  <text x="525" y="102" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="9" fill="#333" letter-spacing="0.5">CONTROLLO</text>
+  <text x="525" y="114" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8"  fill="#888">Continuo</text>
+
+  <!-- ── STEP 05 — Criticità ── -->
+  <circle cx="675" cy="52" r="36" fill="#111"/>
+  <!-- Warning / alert icon -->
+  <path d="M675 33 L691 61 L659 61 Z" fill="none" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="675" y1="43" x2="675" y2="53" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="675" cy="57.5" r="1.5" fill="white"/>
+  <text x="675" y="76" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="9" fill="#F07800" letter-spacing="1">05</text>
+  <text x="675" y="102" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="9" fill="#333" letter-spacing="0.5">CRITICITÀ</text>
+  <text x="675" y="114" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8"  fill="#888">Gestione</text>
+
+  <!-- ── STEP 06 — Chiusura ── -->
+  <circle cx="825" cy="52" r="36" fill="#F07800"/>
+  <!-- Key icon -->
+  <circle cx="817" cy="48" r="8" fill="none" stroke="white" stroke-width="2"/>
+  <line   x1="823" y1="54" x2="836" y2="54" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <line   x1="833" y1="54" x2="833" y2="58" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <line   x1="829" y1="54" x2="829" y2="57" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <text x="825" y="76" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="9" fill="white" letter-spacing="1">06</text>
+  <text x="825" y="102" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="9" fill="#333" letter-spacing="0.5">CHIUSURA</text>
+  <text x="825" y="114" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="8"  fill="#888">Controllata</text>
+
+  <!-- Label GCCP -->
+  <text x="450" y="140" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800" font-size="10" fill="#e0e0e0" letter-spacing="6">METODO G.C.C.P.</text>
+</svg>

@@ -134,6 +134,17 @@ em {
   opacity: 0.65;
 }
 
+.logo-img {
+  display: block;
+  width: 80px;
+  height: auto;
+  transition: opacity var(--transition-fast);
+}
+
+.logo-link:hover .logo-img {
+  opacity: 0.65;
+}
+
 /* Navigation */
 .sidebar-nav {
   flex: 1;
@@ -354,25 +365,58 @@ em {
 /* Profile image */
 .hero-image {
   flex: 0 0 auto;
+  position: relative;
+}
+
+/* Geometric accent ring behind the circle */
+.hero-image::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  width: 224px;
+  height: 224px;
+  border-radius: 50%;
+  border: 1px solid var(--color-accent);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Small orange corner square accent */
+.hero-image::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  right: -18px;
+  width: 28px;
+  height: 28px;
+  background: var(--color-accent);
+  opacity: 0.18;
+  pointer-events: none;
 }
 
 .hero-image-frame {
-  width: 320px;
-  height: 320px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
   overflow: hidden;
-  border: 1px solid var(--color-border);
-  filter: grayscale(100%);
-  transition: filter var(--transition-base);
+  border: none;
+  outline: 2px solid var(--color-accent);
+  outline-offset: 7px;
+  filter: grayscale(100%) contrast(1.08);
+  transition: filter var(--transition-base), outline-color var(--transition-base);
 }
 
 .hero-image-frame:hover {
-  filter: grayscale(60%);
+  filter: grayscale(70%) contrast(1.04);
+  outline-color: var(--color-black);
 }
 
 .hero-image-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
 }
 
 /* Hero text */
@@ -633,6 +677,52 @@ em {
   width: 30px;
   height: 1px;
   background-color: var(--color-accent);
+}
+
+/* ─────────────────────────────────────────
+   SKYLINE BANNER
+───────────────────────────────────────── */
+.skyline-banner {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  opacity: 0.8;
+}
+
+.skyline-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 160px;
+}
+
+/* ─────────────────────────────────────────
+   GCCP PROCESS DIAGRAM
+───────────────────────────────────────── */
+.gccp-process-wrap {
+  text-align: center;
+  margin: 20px 0 48px;
+  overflow-x: auto;
+}
+
+.gccp-process-img {
+  width: 100%;
+  max-width: 860px;
+  height: auto;
+}
+
+/* ─────────────────────────────────────────
+   AMBITI ICONS
+───────────────────────────────────────── */
+.ambito-icon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 16px;
+}
+
+.ambito-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 /* ─────────────────────────────────────────

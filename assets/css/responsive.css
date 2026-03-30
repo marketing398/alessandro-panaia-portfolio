@@ -23,14 +23,27 @@
   }
 
   .hero-image-frame {
-    width: 260px;
-    height: 260px;
+    width: 180px;
+    height: 180px;
+  }
+  .hero-image::before {
+    width: 204px;
+    height: 204px;
   }
 
   /* Profilo: single column */
   .profilo-grid {
     grid-template-columns: 1fr;
     gap: 48px;
+  }
+
+  /* GCCP process: allow scroll on narrow screens */
+  .gccp-process-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .gccp-process-img {
+    min-width: 560px;
   }
 
   /* Ambiti: 2-column */
@@ -94,6 +107,22 @@
   :root {
     --content-padding: 24px;
     --section-padding: 64px var(--content-padding);
+  }
+
+  /* Skyline banner: reduce height on mobile */
+  .skyline-banner img {
+    max-height: 100px;
+  }
+
+  /* GCCP process: full scroll on mobile */
+  .gccp-process-img {
+    min-width: 480px;
+  }
+
+  /* Ambiti icons: smaller */
+  .ambito-icon {
+    width: 42px;
+    height: 42px;
   }
 
   /* ── Body: block layout (no flex row) ── */
@@ -418,8 +447,12 @@
   }
 
   .hero-image-frame {
-    width: 360px;
-    height: 360px;
+    width: 220px;
+    height: 220px;
+  }
+  .hero-image::before {
+    width: 244px;
+    height: 244px;
   }
 }
 
