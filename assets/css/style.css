@@ -130,6 +130,18 @@ em {
   transition: opacity var(--transition-fast);
 }
 
+.logo-subtitle {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--color-mid);
+  margin-top: 5px;
+  line-height: 1.5;
+}
+
 .logo-link:hover .logo-text {
   opacity: 0.65;
 }
@@ -199,6 +211,14 @@ em {
   color: var(--color-muted);
   line-height: 1.8;
   letter-spacing: 0.02em;
+}
+
+.sidebar-credentials {
+  margin-top: 10px;
+  font-size: 0.62rem !important;
+  line-height: 1.6 !important;
+  border-top: 1px solid var(--color-border);
+  padding-top: 10px;
 }
 
 /* Hamburger button (hidden on desktop) */
@@ -319,28 +339,10 @@ em {
   margin-top: -20px;
 }
 
-/* Decorative circle ⊕ — top-right of section header */
-.deco-circle {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 1px solid var(--color-accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-
+/* Decorative circle — hidden */
+.deco-circle,
 .deco-dot {
-  display: block;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background-color: var(--color-accent);
-  border: 1px solid var(--color-accent);
+  display: none !important;
 }
 
 /* ─────────────────────────────────────────
@@ -366,50 +368,49 @@ em {
 .hero-image {
   flex: 0 0 auto;
   position: relative;
+  /* Spazio per il bordo offset e la stroke accent */
+  padding-right: 16px;
+  padding-bottom: 22px;
 }
 
-/* Geometric accent ring behind the circle */
+/* Bordo offset architetturale — profondità senza peso visivo */
 .hero-image::before {
   content: '';
   position: absolute;
-  top: -12px;
-  left: -12px;
-  width: 224px;
-  height: 224px;
-  border-radius: 50%;
-  border: 1px solid var(--color-accent);
-  opacity: 0.5;
+  top: 16px;
+  left: 16px;
+  right: 0;
+  bottom: 8px;
+  border: 1px solid var(--color-border);
   pointer-events: none;
+  z-index: 0;
 }
 
-/* Small orange corner square accent */
+/* Accent stroke — firma visiva in arancione, discreta */
 .hero-image::after {
   content: '';
   position: absolute;
   bottom: 8px;
-  right: -18px;
-  width: 28px;
-  height: 28px;
+  left: 0;
+  width: 44px;
+  height: 3px;
   background: var(--color-accent);
-  opacity: 0.18;
   pointer-events: none;
 }
 
 .hero-image-frame {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+  width: 260px;
+  height: 260px;
   overflow: hidden;
-  border: none;
-  outline: 2px solid var(--color-accent);
-  outline-offset: 7px;
-  filter: grayscale(100%) contrast(1.08);
-  transition: filter var(--transition-base), outline-color var(--transition-base);
+  filter: grayscale(18%) contrast(1.06);
+  transition: filter var(--transition-base), transform var(--transition-base);
 }
 
 .hero-image-frame:hover {
-  filter: grayscale(70%) contrast(1.04);
-  outline-color: var(--color-black);
+  filter: grayscale(0%) contrast(1.02);
+  transform: translate(-4px, -4px);
 }
 
 .hero-image-frame img {
@@ -489,14 +490,15 @@ em {
 }
 
 .btn--primary {
-  background-color: var(--color-black);
-  color: var(--color-sidebar);
-  border: 1px solid var(--color-black);
+  background-color: transparent;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
 }
 
 .btn--primary:hover {
-  background-color: var(--color-dark);
-  border-color: var(--color-dark);
+  background-color: var(--color-accent);
+  color: #ffffff;
+  border-color: var(--color-accent);
 }
 
 .btn--outline {
@@ -623,8 +625,13 @@ em {
 .metodo-intro p {
   font-family: var(--font-body);
   font-size: 1rem;
-  color: var(--color-accent);
+  color: var(--color-black);
   line-height: 1.85;
+}
+
+.metodo-intro p em {
+  color: var(--color-accent);
+  font-style: italic;
 }
 
 .cards-grid {
@@ -667,7 +674,7 @@ em {
 .card-body {
   font-family: var(--font-body);
   font-size: 0.85rem;
-  color: var(--color-mid);
+  color: var(--color-dark);
   line-height: 1.75;
   margin-bottom: 28px;
 }
@@ -740,16 +747,13 @@ em {
 }
 
 .ambito-number {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2.4rem;
-  font-weight: 200;
-  color: var(--color-accent-bg);
-  line-height: 1;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 800;
+  color: var(--color-black);
+  line-height: 1.08;
   margin-bottom: 16px;
-  letter-spacing: 0.02em;
-  /* large outline number */
-  -webkit-text-stroke: 1px var(--color-border);
-  color: transparent;
+  letter-spacing: -0.02em;
 }
 
 .ambito-title {
@@ -1201,16 +1205,8 @@ em {
   width: 40px;
 }
 
-/* Number: add transform-origin so scale originates from left */
 .ambito-number {
   display: inline-block;
-  transform-origin: left center;
-  transition: transform 0.3s ease, -webkit-text-stroke-color 0.3s ease;
-}
-
-.ambito-item:hover .ambito-number {
-  transform: scale(1.15);
-  -webkit-text-stroke-color: var(--color-mid);
 }
 
 /* ─────────────────────────────────────────
@@ -1264,7 +1260,7 @@ em {
 }
 
 .advenire-title {
-  color: var(--adv-green) !important;
+  color: var(--color-black) !important;
 }
 
 /* Grid */
@@ -1285,7 +1281,7 @@ em {
 }
 
 .advenire-text strong {
-  color: var(--adv-green);
+  color: var(--color-black);
   font-weight: 600;
 }
 
@@ -1300,8 +1296,8 @@ em {
   font-size: 0.8rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--adv-green);
-  border-bottom: 1px solid var(--adv-green);
+  color: var(--color-black);
+  border-bottom: 1px solid var(--color-black);
   padding-bottom: 2px;
   transition: gap 0.2s ease, opacity 0.2s ease;
 }
@@ -1329,8 +1325,6 @@ em {
   gap: 12px;
   margin-bottom: 28px;
   padding: 20px 28px;
-  background: rgba(27, 61, 42, 0.04);
-  border: 1px solid rgba(27, 61, 42, 0.12);
 }
 
 .advenire-aside-icon {
@@ -1350,7 +1344,7 @@ em {
 
 /* Info card */
 .advenire-card {
-  border: 1px solid rgba(27, 61, 42, 0.2);
+  border: 1px solid var(--color-border);
   padding: 24px;
   background: rgba(27, 61, 42, 0.03);
 }
@@ -1374,7 +1368,7 @@ em {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--adv-green);
+  color: var(--color-black);
   flex-shrink: 0;
 }
 
@@ -1386,8 +1380,8 @@ em {
 }
 
 .advenire-card-link {
-  color: var(--adv-green);
-  border-bottom: 1px solid rgba(27, 61, 42, 0.4);
+  color: var(--color-black);
+  border-bottom: 1px solid var(--color-border);
   transition: opacity 0.2s ease;
 }
 
@@ -1566,14 +1560,13 @@ em {
 
 .ctab-panel-num {
   display: block;
-  font-family: var(--font-heading);
-  font-size: 4.5rem;
-  font-weight: 800;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--color-border);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-muted);
   line-height: 1;
   margin-bottom: 18px;
-  letter-spacing: -0.04em;
+  letter-spacing: 0.02em;
   pointer-events: none;
 }
 
@@ -1687,5 +1680,466 @@ em {
 .card-pdf-link svg {
   flex-shrink: 0;
   stroke: currentColor;
+}
+
+/* ─────────────────────────────────────────
+   QR STRIP — fascia dedicata sopra footer
+───────────────────────────────────────── */
+.qr-strip {
+  background-color: var(--color-black);
+  padding: 40px var(--content-padding);
+}
+
+.qr-strip-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  max-width: 680px;
+}
+
+.qr-strip-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.qr-strip-label {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.qr-strip-desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+.qr-strip-image img {
+  display: block;
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────
+   FOOTER CREDENTIALS
+───────────────────────────────────────── */
+.footer-credentials {
+  margin-top: 6px;
+  font-size: 0.72rem;
+  color: var(--color-muted);
+  letter-spacing: 0.01em;
+}
+
+/* ─────────────────────────────────────────
+   ADVENIRE — Logo placeholder
+───────────────────────────────────────── */
+.advenire-logo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 24px 0 8px;
+}
+
+.advenire-logo-img {
+  display: none; /* shown once src is provided */
+  max-width: 200px;
+  height: auto;
+}
+
+.advenire-logo-img[src]:not([src=""]) {
+  display: block;
+}
+
+.advenire-placeholder-label {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  font-style: italic;
+  border: 1px dashed var(--color-border);
+  padding: 10px 18px;
+  display: inline-block;
+}
+
+/* ─────────────────────────────────────────
+   20. BTN-SCOPRI — CTA "Scopri di più" nelle card G.C.C.P.
+───────────────────────────────────────── */
+.btn-scopri {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: transparent;
+  border: 1px solid var(--color-accent);
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  line-height: 1;
+}
+
+.btn-scopri:hover,
+.btn-scopri:focus-visible {
+  background: var(--color-accent);
+  color: #ffffff;
+  outline: none;
+}
+
+/* ─────────────────────────────────────────
+   21. GCCP MODAL — Overlay e dialog
+───────────────────────────────────────── */
+
+/* Overlay */
+.gccp-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(17, 17, 17, 0.55);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.gccp-modal-overlay.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Modal panel — slide in from right */
+.gccp-modal {
+  position: relative;
+  width: min(720px, 100%);
+  height: 100dvh;
+  height: 100vh;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(48px);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+}
+
+.gccp-modal-overlay.is-open .gccp-modal {
+  transform: translateX(0);
+}
+
+/* Header */
+.gccp-modal-header {
+  position: relative;
+  padding: 48px 52px 36px;
+  border-bottom: 1px solid var(--color-border);
+  background: #ffffff;
+  flex-shrink: 0;
+}
+
+.gccp-modal-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.gccp-modal-num {
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  background: var(--color-accent);
+  padding: 4px 10px;
+  line-height: 1;
+}
+
+.gccp-modal-label {
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.gccp-modal-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+  font-weight: 700;
+  color: var(--color-black);
+  line-height: 1.15;
+  margin-bottom: 10px;
+  padding-right: 52px; /* space for close btn */
+}
+
+.gccp-modal-obiettivo {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-mid);
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+/* Close button */
+.gccp-modal-close {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--color-mid);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), color var(--transition-fast),
+              background var(--transition-fast);
+}
+
+.gccp-modal-close:hover,
+.gccp-modal-close:focus-visible {
+  border-color: var(--color-black);
+  color: var(--color-black);
+  background: var(--color-accent-bg);
+  outline: none;
+}
+
+/* Scrollable body */
+.gccp-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 40px 52px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Generic section block */
+.gccp-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.gccp-section-title {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.gccp-section-text {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--color-dark);
+  line-height: 1.75;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Lists */
+.gccp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.gccp-list li {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--color-dark);
+  line-height: 1.65;
+  padding-left: 18px;
+  position: relative;
+}
+
+.gccp-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 1px;
+  background: var(--color-accent);
+}
+
+/* Impact grid: 3 colonne */
+.gccp-impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--color-border);
+  border: 1px solid var(--color-border);
+}
+
+.gccp-impact-col {
+  background: var(--color-accent-bg);
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gccp-impact-label {
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-black);
+}
+
+.gccp-impact-text {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-dark);
+  line-height: 1.6;
+}
+
+/* Valore professionale */
+.gccp-section--valore {
+  background: var(--color-accent-bg);
+  padding: 24px 28px;
+  margin-bottom: 8px;
+}
+
+.gccp-valore-text {
+  font-family: var(--font-serif);
+  font-size: 0.97rem;
+  color: var(--color-dark);
+  line-height: 1.75;
+  font-style: italic;
+}
+
+/* Footer */
+.gccp-modal-footer {
+  padding: 20px 52px;
+  border-top: 1px solid var(--color-border);
+  flex-shrink: 0;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.gccp-btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color var(--transition-fast);
+}
+
+.gccp-btn-back:hover,
+.gccp-btn-back:focus-visible {
+  color: var(--color-black);
+  outline: none;
+}
+
+.gccp-btn-pdf {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  padding: 8px 16px;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.gccp-btn-pdf:hover,
+.gccp-btn-pdf:focus-visible {
+  background: var(--color-accent);
+  color: #ffffff;
+  outline: none;
+}
+
+.gccp-btn-pdf svg {
+  flex-shrink: 0;
+  stroke: currentColor;
+}
+
+/* ─────────────────────────────────────────
+   Responsive: modal su mobile
+───────────────────────────────────────── */
+@media (max-width: 767px) {
+  .gccp-modal {
+    width: 100%;
+    height: 100dvh;
+    height: 100vh;
+    transform: translateY(40px);
+  }
+
+  .gccp-modal-overlay.is-open .gccp-modal {
+    transform: translateY(0);
+  }
+
+  .gccp-modal-header {
+    padding: 36px 24px 28px;
+  }
+
+  .gccp-modal-body {
+    padding: 28px 24px;
+    gap: 32px;
+  }
+
+  .gccp-modal-footer {
+    padding: 14px 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* Impact grid → stack verticale su mobile */
+  .gccp-impact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gccp-modal-title {
+    padding-right: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gccp-section--valore {
+    padding: 18px 18px;
+  }
 }
 

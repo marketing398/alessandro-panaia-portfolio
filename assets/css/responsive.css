@@ -26,10 +26,6 @@
     width: 180px;
     height: 180px;
   }
-  .hero-image::before {
-    width: 204px;
-    height: 204px;
-  }
 
   /* Profilo: single column */
   .profilo-grid {
@@ -454,10 +450,6 @@
     width: 220px;
     height: 220px;
   }
-  .hero-image::before {
-    width: 244px;
-    height: 244px;
-  }
 }
 
 /* ─────────────────────────────────────────
@@ -511,5 +503,13 @@
 
   .ctab-panel-num {
     font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .qr-strip-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
   }
 }
