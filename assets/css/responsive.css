@@ -557,27 +557,24 @@
     display: none;
   }
 
-  /* 6. Advenire aside: compact logo block */
-  .advenire-aside-logo {
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 16px;
-    padding: 16px 0;
+  /* 6. Advenire brand frame: compact su mobile */
+  .adv-brand-frame {
+    padding: 32px 24px 28px;
+    margin-bottom: 20px;
+  }
+
+  .adv-brand-icon {
+    width: 52px;
     margin-bottom: 16px;
   }
 
-  .advenire-aside-icon {
-    width: 48px;
-    max-height: 48px;
-    margin: 0;
+  .adv-brand-divider {
+    margin-bottom: 16px;
   }
 
-  .advenire-aside-wordmark {
-    width: auto;
-    max-width: 140px;
-    height: 28px;
-    object-fit: contain;
+  .adv-brand-wordmark {
+    width: 120px;
+    margin-bottom: 16px;
   }
 
   /* 7. Advenire card info values: word-break on long email */

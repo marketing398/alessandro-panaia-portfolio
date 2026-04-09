@@ -1316,30 +1316,58 @@ em {
   transform: translateX(4px);
 }
 
-/* Aside: icona + wordmark verde */
-.advenire-aside-logo {
+/* ── Elegant brand frame ── */
+.adv-brand-frame {
+  position: relative;
+  background-color: var(--adv-green);
+  padding: 44px 36px 36px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
   margin-bottom: 28px;
-  padding: 20px 28px;
+  border: 1px solid rgba(242, 160, 124, 0.15);
 }
 
-.advenire-aside-icon {
-  width: 72%;
-  max-height: 110px;
+/* Corner bracket accents (corallo) */
+.adv-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+.adv-corner--tl { top: -1px; left: -1px;   border-top: 2px solid var(--adv-coral); border-left:  2px solid var(--adv-coral); }
+.adv-corner--tr { top: -1px; right: -1px;  border-top: 2px solid var(--adv-coral); border-right: 2px solid var(--adv-coral); }
+.adv-corner--bl { bottom: -1px; left: -1px;  border-bottom: 2px solid var(--adv-coral); border-left:  2px solid var(--adv-coral); }
+.adv-corner--br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--adv-coral); border-right: 2px solid var(--adv-coral); }
+
+.adv-brand-icon {
+  width: 68px;
   height: auto;
   display: block;
-  margin-top: -12%;
-  margin-bottom: -12%;
+  margin-bottom: 22px;
 }
 
-.advenire-aside-wordmark {
-  width: 90%;
+.adv-brand-divider {
+  width: 36px;
+  height: 1px;
+  background-color: rgba(242, 160, 124, 0.45);
+  margin-bottom: 22px;
+}
+
+.adv-brand-wordmark {
+  width: 148px;
   height: auto;
   display: block;
+  margin-bottom: 22px;
+}
+
+.adv-brand-tagline {
+  font-family: var(--font-heading);
+  font-size: 0.56rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  text-align: center;
+  line-height: 1.9;
 }
 
 /* Info card */
