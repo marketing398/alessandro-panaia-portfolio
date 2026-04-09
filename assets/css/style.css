@@ -1320,7 +1320,7 @@ em {
 .adv-brand-frame {
   position: relative;
   background-color: transparent;
-  padding: 20px 28px;
+  padding: 32px 28px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
