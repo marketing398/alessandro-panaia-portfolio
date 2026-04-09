@@ -2157,3 +2157,21 @@ em {
   }
 }
 
+/* ─────────────────────────────────────────
+   TESTO GIUSTIFICATO — tutte le sezioni
+───────────────────────────────────────── */
+.profilo-bio p,
+.metodo-intro p,
+.advenire-text p,
+.card-body,
+.committenza-body,
+.ctab-panel-body,
+.contact-quote p,
+.hero-body,
+.gccp-modal-body p,
+.gccp-section p {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
