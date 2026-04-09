@@ -513,3 +513,154 @@
     gap: 24px;
   }
 }
+
+/* ─────────────────────────────────────────
+   MOBILE RESPONSIVE OVERHAUL
+   Fixes overflow, alignment, spacing
+───────────────────────────────────────── */
+@media (max-width: 767px) {
+
+  /* 1. Block horizontal scroll at html level */
+  html {
+    overflow-x: hidden;
+  }
+
+  /* 2. Ensure section-inner never exceeds viewport */
+  .section-inner {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* 3. Btn: allow text wrap on very narrow screens */
+  .btn {
+    white-space: normal;
+    text-align: center;
+  }
+
+  /* 4. Hero: cap image width, center it */
+  .hero-image {
+    align-self: center;
+  }
+
+  .hero-image-frame {
+    width: 160px;
+    height: 160px;
+  }
+
+  .hero-name {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+
+  /* 5. Advenire: hide oversized decorative bg icon */
+  .advenire-bg-icon {
+    display: none;
+  }
+
+  /* 6. Advenire aside: compact logo block */
+  .advenire-aside-logo {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    padding: 16px 0;
+    margin-bottom: 16px;
+  }
+
+  .advenire-aside-icon {
+    width: 48px;
+    max-height: 48px;
+    margin: 0;
+  }
+
+  .advenire-aside-wordmark {
+    width: auto;
+    max-width: 140px;
+    height: 28px;
+    object-fit: contain;
+  }
+
+  /* 7. Advenire card info values: word-break on long email */
+  .advenire-card .info-value {
+    word-break: break-all;
+    text-align: right;
+  }
+
+  /* 8. GCCP process diagram: allow internal scroll, shrink min-width */
+  .gccp-process-img {
+    min-width: 300px;
+  }
+
+  /* 9. Hero section: don't force full viewport height */
+  .section--hero {
+    min-height: 0;
+    padding-bottom: 0;
+  }
+
+  .section-inner--hero {
+    padding-top: 40px;
+    padding-bottom: 48px;
+    gap: 28px;
+  }
+
+  /* 10. Stats row: tighter padding */
+  .stat-item {
+    padding: 0 8px;
+  }
+
+  .stat-label {
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* 11. Section label: allow wrap */
+  .section-label {
+    white-space: normal;
+    letter-spacing: 0.14em;
+  }
+
+  /* 12. Committenza tab panel: reduce internal padding */
+  .ctab-panel-inner {
+    padding: 24px 16px;
+    gap: 20px;
+  }
+
+  /* 13. Section inner padding: slightly tighter */
+  :root {
+    --section-padding: 56px var(--content-padding);
+  }
+
+  /* 14. Contatti QR strip: tighter */
+  .qr-strip {
+    padding: 32px var(--content-padding);
+  }
+
+  /* 15. Modal: full width on mobile */
+  .gccp-modal {
+    width: 100%;
+  }
+
+  .gccp-modal-header {
+    padding: 36px 24px 28px;
+  }
+
+  /* 16. Ambiti: ensure 2-col grid cells don't overflow */
+  .ambiti-grid {
+    gap: 20px;
+  }
+
+  .ambito-number {
+    font-size: clamp(1.6rem, 7vw, 2.4rem);
+  }
+
+  /* 17. Section header margin */
+  .section-header {
+    margin-bottom: 36px;
+  }
+
+  /* 18. Profilo bio font */
+  .profilo-bio p {
+    font-size: 0.92rem;
+    line-height: 1.8;
+  }
+}
