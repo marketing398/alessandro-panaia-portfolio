@@ -49,6 +49,7 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -1352,8 +1353,10 @@ em {
 
 .adv-brand-wordmark {
   width: 90%;
+  max-width: 260px;
   height: auto;
   display: block;
+  margin: 0 auto;
 }
 
 /* Info card */

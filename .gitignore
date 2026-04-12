@@ -6,6 +6,9 @@
 # Working/draft assets (not for production)
 asset/
 
+# Vercel
+.vercel/
+
 # Editor
 .vscode/
 .idea/
@@ -14,3 +17,9 @@ asset/
 
 # Logs
 *.log
+
+# Private/working documents
+*.private.*
+Brief_*.pdf
+Metodo-GCCP-*.pdf
+logo-def.pdf
