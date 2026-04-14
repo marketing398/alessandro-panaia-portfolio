@@ -512,6 +512,16 @@
     align-items: flex-start;
     gap: 24px;
   }
+
+  .qr-strip-image {
+    display: none;
+  }
+
+  .qr-strip-btn {
+    display: inline-flex;
+    align-self: stretch;
+    justify-content: center;
+  }
 }
 
 /* ─────────────────────────────────────────
