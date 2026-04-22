@@ -428,6 +428,11 @@ em {
   min-width: 0;
 }
 
+/* QR strip desc: versione mobile nascosta di default (override in responsive.css) */
+.qr-strip-desc--mobile {
+  display: none;
+}
+
 .hero-name {
   font-family: var(--font-heading);
   font-weight: 800;

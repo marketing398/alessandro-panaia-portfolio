@@ -522,6 +522,15 @@
     align-self: stretch;
     justify-content: center;
   }
+
+  /* Testo QR strip: mostra versione mobile, nascondi desktop */
+  .qr-strip-desc--desktop {
+    display: none;
+  }
+
+  .qr-strip-desc--mobile {
+    display: block;
+  }
 }
 
 /* ─────────────────────────────────────────
@@ -554,12 +563,20 @@
   }
 
   .hero-image-frame {
-    width: 160px;
-    height: 160px;
+    width: 140px;
+    height: 140px;
   }
 
   .hero-name {
     font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+
+  /* 4b. Hero: disabilita animazioni AOS su mobile per mostrare
+     foto + testo insieme già al caricamento (niente scroll per vederlo). */
+  .section--hero [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 
   /* 5. Advenire: hide oversized decorative bg icon */
@@ -605,10 +622,11 @@
   }
 
   .section-inner--hero {
-    padding-top: 40px;
-    padding-bottom: 48px;
-    gap: 28px;
+    padding-top: 24px;
+    padding-bottom: 40px;
+    gap: 20px;
   }
+
 
   /* 10. Stats row: tighter padding */
   .stat-item {
